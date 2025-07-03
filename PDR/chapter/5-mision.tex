@@ -1,2 +1,374 @@
 \chapter{Descripción de la Misión}
+el proyecto ha sido denominado lambda (lambda analyzes microorganisms biological damage in anomalous
+ conditions), nombre que refleja el proposito general de la mision:
+analizar los efectos de condiciones extremas como aceleraciones, vibraciones y variaciones
+termicas sobre la integridad y viabilidad de microorganismos transportados a bordo del
+cubesat.
+
+en este captulo se describen las dos misiones que componen el proyecto lambda: la
+mision primaria, de caracter obligatorio, que responde a los requerimientos mnimos establecidos por
+la organizacion; y la mision secundaria, opcional y de libre eleccion, disenada con
+un fuerte enfoque cientfico y desarrollada en colaboracion con el instituto de investigacion
+medica mercedes y martn ferreyra (inimec-conicet-unc).
+
+reconocemos el esfuerzo y dedicacion que implica la organizacion de esta competencia, as
+como tambien el trabajo necesario para el diseno y construccion del cohete y su futuro lanzamiento.
+por ello, consideramos que el vuelo del cubesat representa una valiosa oportunidad
+que debe tener un proposito bien definido y significativo.
+
+si bien ambas misiones son relevantes, el equipo ha dedicado especial atencion a la mision secundaria,
+ya que permite una mayor libertad creativa e impulsa un enfoque original
+orientado a la investigacion biomedica. en las siguientes secciones se detallan los objetivos,
+fundamentos y enfoques tecnicos adoptados para cada una de las misiones que conforman el
+proyecto lambda.
+
 \section{Objetivos Misión Primaria}
+La mision principal del presente proyecto consiste en registrar durante todo el vuelo del
+CubeSat ciertas variables fsicas, las cuales son:
+
+  \begin{itemize}
+    \item Presion atmosferica,
+    \item Temperatura ambiente,
+    \item Aceleracion en los tres ejes,
+    \item Angulo de giro en los tres ejes.
+  \end{itemize}
+
+Estas mediciones seran recopiladas, filtradas y almacenadas, y permitiran llevar a cabo
+diversos analisis sobre el comportamiento del CubeSat durante su vuelo.
+El objetivo sera aprovechar dichas mediciones para determinar el instante en el que se
+alcanza el apogeo y su altitud maxima (valor de apogeo) respecto al punto de lanzamiento.
+Por otro lado, tambien se determinara el tiempo total de ascenso y descenso, y se identificaran
+las distintas fases del vuelo, tales como: inicio del ascenso, fin de la propulsion, el apogeo,
+
+finalmente, la recuperacion.
+Estas determinaciones, ademas de cumplir con los requisitos mnimos establecidos por la
+organizacion de la competencia, seran de gran utilidad para la mision secundaria propuesta,
+ya que permitiran interpretar correctamente los resultados obtenidos de la experimentacion
+a realizar, que sera detallada en la siguiente seccion.
+
+\section{Objetivos Misión Secundaria}
+  \subsection{General}
+    La mision secundaria del CubeSat, desarrollada en colaboracion con el Instituto de Investigacion
+    Medica Mercedes y Martn Ferreyra (INIMEC-CONICET-UNC), se centra en
+    el estudio de la viabilidad de celulas eucariotas, en particular el parasito Giardia Lamblia,
+    expuestas a condiciones de estres fsico durante el lanzamiento y vuelo del vehculo portador. En
+    este contexto, la viabilidad celular se define como la proporcion de celulas vivas y
+    funcionales dentro de una poblacion sometida a factores adversos.
+    Los principales factores de estres que se evaluaran incluyen las vibraciones mecanicas y
+    las aceleraciones experimentadas durante el trayecto. Para ello, se analizaran varias muestras
+    celulares dispuestas en condiciones experimentales distintas, con el objetivo de identificar
+    posibles diferencias en sus respuestas fisiologicas.
+
+    El sistema contara con control termico tanto para mantener la temperatura dentro de
+    un rango adecuado para la preservacion celular, como para someter distintas muestras a
+    distintas condiciones de temperatura. Posteriormente, se llevara a cabo un analisis postvuelo a
+    fin de evaluar los efectos del entorno sobre cada muestra, mediante la observacion de
+    cambios estructurales o alteraciones morfologicas en las celulas.
+
+  \subsection{Giardia Lamblia}
+    La Giardia Lamblia es un protozoario parasito flagelado que coloniza el intestino humano
+    y animal, siendo una causa muy frecuente de enfermedad intestinal, contribuyendo a la carga
+    de malnutricion en todo el mundo. La enfermedad producida por este parasito conocida
+    como giardiasis es una parasitosis con gran importancia clnica y epidemiologica. Siendo esta
+    la infeccion parasitaria del intestino humano mas frecuente de todo el mundo.
+    Una caracterstica importante que poseen los microorganismos parasitos es su gran capacidad de
+    adaptacion a los cambios del medio ambiente. La mayora de los parasitos ocupan
+    diferentes nichos durante su travesa a por vectores y huespedes, desarrollando extraordinarios
+    mecanismos de adaptacion que les permiten sobrevivir en condiciones que de otro modo
+    los destruiran. Particularmente, Giardia Lamblia experimenta un proceso de diferenciacion
+    a quiste, conocido como enquistamiento.
+
+    El ciclo de vida simple de dos etapas de Giardia es central para su exito como parasito. Los
+    quistes de Giardia Lamblia pueden sobrevivir en agua dulce fra durante meses, y se necesitan
+    menos de 10 quistes para la infeccion humana. La exposicion de los quistes ingeridos al acido
+    Despues de la entrada en el intestino delgado, la pared del quiste se abre y emerge el
+    parasito. Los trofozotos colonizan por debajo de la entrada del conducto biliar comun y pueden
+    causar enfermedades, aunque no invaden. Si son transportados ro abajo, los trofozotos
+    deben enquistarse para sobrevivir fuera del huesped. In vitro, Giardia se enquista en respuesta a
+    los estmulos fisiologicos de aumento de bilis y pH ligeramente alcalino [2]. El estandar
+    de oro para una enquistacion exitosa es la capacidad de los quistes para exquistarse.
+    Otros parasitos intestinales importantes, como Entamoeba, Toxoplasma, Cryptosporidium, varias
+    tenias y nematodos, se transmiten en forma de quistes u ooquistes. Sin embargo,
+    el estudio de estos organismos se ve limitado por la imposibilidad de generar quistes maduros
+    in vitro a diferencia de la Giardia Lamblia, por lo que se considera a este como un modelo
+    de estudio para los demas parasitos.
+
+    La va de enquistamiento de Giardia es un mecanismo clave de virulencia cuyo objetivo
+    biologico es la diferenciacion hacia una forma que pueda sobrevivir en el ambiente e infectar
+    a un nuevo huesped. El enquistamiento tambien promueve la evasion inmunitaria y es un
+    objetivo para el desarrollo de vacunas y farmacos.
+    La enquistacion es una transformacion gradual del trofozoto movil, flagelado, binucleado
+    y con forma de media pera (Figura 5.1). Los trofozotos pierden su capacidad de fijacion
+    a la pared intestinal; los fragmentos del disco de fijacion y los flagelos se internalizan. El
+    metabolismo tambien disminuye a medida que las celulas se redondean y entran en latencia.
+
+    image//Giarda/Proceso de Enquistamiento.jpg
+
+    Figura 5.1: Enquistamiento de Giardia Lamblia: del trofozoto al quiste. F, flagelos. Barra: 5
+    m
+    Las imagenes de izquierda a derecha muestran un trofozoto vegetativo, trofozotos despues de 21 y
+    42 horas de enquistamiento y un quiste resistente al agua. [2]
+
+  \subsection{Experimento}
+    Se establecieron tres condiciones experimentales con el objetivo de evaluar el efecto de las
+    variables asociadas al lanzamiento sobre el crecimiento y viabilidad de las muestras biologicas.
+    Las condiciones disenadas son las siguientes:
+ 
+    \begin{itemize}
+      \item \textbf{Condición de vuelo (CUBESAT):} las muestras seran enviadas a bordo del CubeSat y
+      sometidas a diferentes temperaturas: 10°C, 37°C (considerada óptima para el
+      crecimiento) y 55C. Adicionalmente, se incluira una muestra sin control activo de temperatura,
+      expuesta a las variaciones termicas propias del entorno.
+
+      Todas las capsulas estaran posicionadas con una inclinacion de 45 con respecto al eje horizontal, condicion
+      necesaria para favorecer la adherencia del parasito al medio de cultivo. Se busca analizar el
+      impacto combinado de la microgravedad, las variaciones de presion, aceleraciones
+      y la exposicion termica.
+
+      \item \textbf{Condicion control terrestre (ESTACION TERRESTRE):} se replicara en tierra
+      el mismo diseno experimental termico y la misma orientacion espacial de las capsulas
+      que en el CubeSat. No obstante, las muestras permaneceran en un entorno terrestre
+      controlado, sin estar expuestas a los factores propios del vuelo. Esta condicion permitira
+      distinguir los efectos del lanzamiento de aquellos debidos a la condicion termica
+      aplicada.
+
+      \item \textbf{Condicion control optima (LABORATORIO):} se cultivara una muestra en condiciones optimas
+      conocidas para el organismo en estudio: temperatura constante de
+      37C, capsula inclinada a 45 y en ausencia de movimiento. Esta condicion constituye
+      el control biologico para el experimento y servira como referencia para evaluar posibles
+      desviaciones en las demas muestras.
+
+      En todos los casos, se mantendran constantes el tipo de recipiente utilizado (capsulas de
+      [material a definir]), el medio de cultivo y la cantidad inicial de trofozotos inoculados por
+      capsula. Asimismo, tanto las muestras de las condiciones a) como b) seran sometidas al mismo
+      proceso de traslado previo al inicio del experimento, con el fin de asegurar homogeneidad en
+      las condiciones iniciales.
+    \end{itemize}
+
+  \subsection{Ensayos}
+    Se realizaran ensayos a posteriori para evaluar si las condiciones a las cuales fue sometido afectaron la viabilidad o si las situaciones de estres disparan mecanismos clasicos de
+    adaptacion de Giardia Lamblia, como por ejemplo; el enquistamiento, procesos de apoptosis,
+    etcetera. Desarrollar que ensayos?
+
+  \subsection{Procedimientos}
+    Esta seccion describe los procedimientos necesarios para el cultivo y traslado de las muestras
+    biologicas utilizadas en el experimento, manteniendo condiciones estandarizadas que
+    aseguren su viabilidad y reproducibilidad.
+    \subsubsection{Cultivo}
+    Para cultivarlos axenicamente se utiliza medio TYI-S-33 (pH 7) suplementado con 10% de
+    suero bovino adulto y 5% de bilis bovina (medio completo de crecimiento) (Diamond, Harlow
+    un volumen determinado de medio. Los tubos se colocaron en gradillas orientadas con una
+    inclinacion de aproximadamente 45, dentro de una estufa de cultivo a 37C.
+    Luego de una hora, se comienza a observar la adhesion de los trofozotos a las paredes del
+    tubo a traves de su disco ventral. De esta manera, se reproduce un entorno similar al que se
+    encuentra in vivo, permitiendo la division de los trofozotos. A las 48 horas se obtiene una
+    mono-capa de trofozotos en etapa de crecimiento. La inclinacion de las gradillas favorece
+    una mayor superficie de adhesion sobre las paredes del tubo.
+    \subsubsection{Traslado}
+    Las condiciones optimas para el traslado consisten en mantener las muestras a 37C y con
+    una inclinacion de 45. El tiempo de traslado puede extenderse hasta 48 horas sin que esto
+    afecte significativamente las condiciones de crecimiento del parasito.
+
+\section{Descripción del CubeSat}
+En esta seccion se presenta una descripcion tecnica del CubeSat disenado para llevar a
+cabo las misiones planteadas previamente. Se detallara como se planea abordar la implementacion de
+los objetivos definidos, a traves de la integracion de subsistemas electronicos, mecanicos y de software.
+
+Se incluyen diagramas de bloques que representan la arquitectura general del sistema y la
+interaccion entre los distintos subsistemas, tales como adquisicion de datos, almacenamiento,
+alimentacion electrica y control de sensores. Asimismo, se describen las herramientas de
+calculo y simulacion empleadas durante las etapas de diseno y verificacion preliminar.
+
+Tambien se presentan estimaciones iniciales de los presupuestos de masa, consumo de
+potencia y volumen de datos, los cuales resultan fundamentales para validar la viabilidad del
+sistema dentro de las restricciones impuestas por la competencia.
+
+El desarrollo de esta seccion tiene por objetivo demostrar la coherencia tecnica entre los
+requerimientos de mision y el diseno propuesto, as como documentar las decisiones adoptadas
+durante el proceso de ingeniera del CubeSat.
+
+  \subsection{General}
+    En la Figura 5.2 se presenta el diagrama en bloques del sistema general desarrollado para
+    el proyecto.
+    El sistema general permite integrar la mision principal, enfocada en la recoleccion de
+    parametros ambientales, con una mision secundaria orientada al control y documentacion de
+    las condiciones de las muestras transportadas.
+
+    Figura 5.2: Diagrama en bloques del sistema general
+
+  \subsection{Descripción de subsistemas}
+    A continuacion, se describe la funcion de cada bloque y su interaccion dentro del sistema:
+    \begin{itemize}
+      \item \textbf{Battery:} Se emplearan seis bateras de polmero de litio (Li-Po) con una tension nominal de 3.7V
+      y una capacidad individual de 3200mAh. Estas se organizaran en tres ramas
+      conectadas en paralelo, cada una conformada por dos bateras en serie. Esta configuracion proporciona una tension total de 7.4V por rama (suma de dos bateras de 3.7V en
+      serie) y una capacidad total de 71.04Wh, adecuada para satisfacer los requerimientos
+      energeticos del CubeSat durante su operacion.
+
+      \item \textbf{Power Management System (PMS):} es el subsistema responsable de administrar
+      de forma segura y eficiente la energa proveniente de las bateras. Su funcion principal es
+      distribuir la energa electrica a los distintos subsistemas del CubeSat, garantizando condiciones adecuadas de operacion, mediante el monitoreo, la proteccion y la regulacion.
+      Especficamente, las funciones del PMS son:
+      Proteger contra cortocircuitos o sobrecarga de corriente,
+      Permite medir parametros electricos (como tension y corriente) y gestionar el
+      encendido y apagado selectivo de distintos rieles de alimentacion lo que contribuye
+      a una mejor eficiencia energetica y diagnostico en vuelo,
+      Generar y estabilizar distintos niveles de tension requeridos por los subsistemas
+      del CubeSat, como 3.3V para sensores, 5V para la computadora de abordo y 12V
+      para cargas especficas.
+      En definitiva, el PMS asegura que los requerimientos energeticos del CubeSat sean
+      satisfechos de manera controlada, segura y adaptable durante toda la mision.
+
+      Figura 5.3: Diagrama en bloques del subsistema Power Management System.
+
+      \item \textbf{On-board Computer (OBC):} Tiene como funcion principal la gestion autonoma de
+      la mision durante todo el vuelo. Esta unidad esta basada en una Raspberry Pi Zero 2
+      W, equipada con el sistema operativo Raspberry Pi OS Lite, una version optimizada sin
+      entorno grafico. Esta configuracion fue seleccionada por su bajo consumo energetico,
+      reducido tamano y alta estabilidad operativa, cualidades esenciales para sistemas embarcados en entornos aeroespaciales.
+      El proposito fundamental del OBC es tomar y almacenar el registro de los sensores,
+      tales como aceleracion, orientacion, presion atmosferica y temperatura ambiente. Estas
+      mediciones son gestionadas por el firmware, y almacenadas de forma estructurada
+      facilitando su posterior lectura y procesamiento.
+
+      El OBC tambien es responsable del control de subsistemas clave, como el de regulacion
+      termica, utilizado para la mision secundaria mediante celdas Peltier, a traves del Sistema de
+      administracion de energa (PMS). Ademas, mantiene una constante conexion
+      con este sistema, actuando como intermediario entre el PMS y el HMI, lo que permite
+      el monitoreo en tiempo real la integridad energetica de los distintos subsistemas. Entre
+      el estado de carga de la batera.
+
+      Una vez finalizado el vuelo, los archivos generados son relevados por el HMI, habilitando
+      su analisis y visualizacion. Esta separacion entre adquisicion y procesamiento permite una asignacion
+      eficiente de recursos, manteniendo al sistema embarcado centrado
+      exclusivamente en tareas crticas durante la mision.
+
+      A traves del HMI sera posible establecer el modo de operacion de la OBC. Teniendo los siguientes modos de operacion:
+      \begin{itemize}
+         \item \textbf{Apagado}
+         \item \textbf{Pre Lanzamiento:} Inicializa los subsistemas y corrobora el correcto funcionamiento.
+          Permite la conexion con la estacion terrena para su verificacion.
+         \item \textbf{Lanzamiento:} Realiza solamente las rutinas crticas para el cumplimiento de la
+        mision. Cortando cualquier va de comunicacion con la estacion terrestre.
+         \item \textbf{Recuperacion de datos:} Rehabilita la comunicacion con la estacion terrestre
+        permitiendo la visualizacion, analisis y descarga de datos.
+         \item \textbf{Prueba:} Este modo sera utilizado durante le desarrollo del CubeSat permitiendo
+        acceso administrativo al sistema.
+      \end{itemize}
+
+      Figura 5.4: Diagrama de subsistema On-board Computer
+
+      \item \textbf{Human-Machine Interface HMI:} Existen dos formas principales de interactuar con
+      el CubeSat. La primera es mediante llaves de hardware que se conectan fsicamente al
+      de interaccion es a traves de una interfaz web segura (HTTPS), accesible mediante una
+      red local generada por la OBC.
+
+      Adicionalmente, y reservadas exclusivamente para situaciones de emergencia, estaran
+      habilitadas la conexion SSH (a traves de la misma red local) y la conexion UART
+      mediante un puerto fsico. Esta ultima constituye la unica va de comunicacion que
+      permanece activa durante todo el ciclo operativo del CubeSat.
+
+      Desde la interfaz web, el usuario puede consultar variables crticas del sistema (temperatura, voltajes,
+      corrientes, estado de sensores, entre otros), as como habilitar o
+      deshabilitar subsistemas especficos, incluyendo rieles de alimentacion y modulos funcionales.
+      Ademas de su rol operativo, la interfaz esta disenada tambien como una herramienta
+      para el analisis post-mision. Una vez concluido el vuelo, permite la visualizacion, procesamiento
+      y descarga de los archivos de datos registrados. Dicho procesamiento se realiza
+      directamente en el cliente web, lo que reduce la carga sobre el sistema embarcado y
+      permite un analisis dinamico sin necesidad de infraestructura adicional.
+
+      En conjunto, el subsistema HMI proporciona una plataforma integral que centraliza el
+      acceso a la informacion, optimiza la supervision tecnica y agiliza el analisis de resultados,
+      facilitando as la validacion de los objetivos de la mision y la interpretacion de los
+      fenomenos observados.
+
+      \item \textbf{Data Storage:} La arquitectura de almacenamiento esta compuesta por dos tarjetas
+      microSD de 16 GB: una como unidad principal, que aloja el sistema operativo y los
+      datos primarios, y otra como unidad de respaldo, conectada mediante la interfaz SPI
+      auxiliar. Ambas se encuentran configuradas en un esquema de RAID 1 por software,
+      lo cual permite la replicacion sincronica de datos.
+
+      En caso de fallos en la unidad principal
+      como corrupcion logica o dano fsico, un conjunto de scripts de supervision ejecuta
+      la des-conexion de la unidad afectada y procede a montar automaticamente el volumen
+      redundante, asegurando as la continuidad operativa de la mision. Este mecanismo de
+      conmutacion automatica simula un entorno de dual boot resiliente, adecuado para
+      contextos de riesgo.
+
+      \item \textbf{Environmental Sensors:} esta compuesto por los sensores encargados de medir los
+      parametros fsico-ambientales durante el vuelo del CubeSat. Su funcion es proporcionar
+      datos confiables y continuos que permitan cumplir con los objetivos establecidos en la
+      mision principal, y sirvan de base contextual para interpretar los resultados de la mision
+      secundaria.
+
+      Este subsistema incluye los siguientes componentes:
+      Unidad de Medicion Inercial (IMU - MPU9250): permite registrar la aceleracion en los
+      tres ejes, as como los angulos de orientacion (roll, pitch y yaw) mediante acelerometros,
+
+      Sensor barometrico BMP280: utilizado para medir la presion atmosferica en funcion
+      del tiempo. Esta variable es clave para estimar la altitud relativa durante el ascenso,
+      identificar el apogeo y complementar el analisis inercial con una referencia absoluta.
+      Sensor de temperatura ambiente: mide la temperatura interna del satelite, proporcionando
+      informacion crtica sobre el entorno termico durante el vuelo, tanto para la
+      mision principal como para el monitoreo de las condiciones que afectan a los organismos
+      involucrados en la mision secundaria.
+
+      Los sensores seran gestionados directamente por el OBC, el cual se encargara de aplicar los
+      filtros digitales necesarios para eliminar ruido, sincronizar temporalmente las
+      muestras y almacenar la informacion.
+
+      Este subsistema ha sido disenado bajo criterios de bajo consumo energetico, alta precision para
+      los objetivos establecidos, y compatibilidad con sistemas embebidos basados
+      en Raspberry Pi.
+
+      \item \textbf{Thermal Regulation Unit (TRU):} tiene como objetivo controlar activamente la
+      temperatura de distintas muestras biologicas durante el vuelo del CubeSat, en el contexto de la
+      mision secundaria. Este sistema sirve para generar condiciones termicas
+      especficas en los compartimientos que contienen los microorganismos.
+      El sistema esta compuesto por los siguientes elementos principales:
+
+       Celdas Peltier: dispositivos termoelectricos capaces de generar un gradiente de
+      temperatura al aplicarles una diferencia de potencial. Su funcionamiento permite
+      tanto calentar como enfriar las muestras, dependiendo de la polaridad y nivel de
+      corriente aplicada. Se utilizaran tres celdas Peltier para mantener muestras en
+      temperaturas distintas.
+      Sensores de temperatura individuales: dispuestos en cada modulo termico, permiten medir la
+
+      temperatura en contacto directo con las muestras, proporcionando
+      una retroalimentacion precisa al sistema de control.
+      El control de las celdas Peltier y la lectura de los sensores estara a cargo del OBC, que
+      ajustara dinamicamente la potencia suministrada a cada celda a traves del PMS.
+      \item \textbf{Payload Unit:}
+
+
+    \end{itemize}
+
+  \subsection{Herramientas de Calculo Empleadas}
+
+  \subsection{Estructura}
+
+  \subsection{Criterios de Margenes}
+
+  \subsection{Presupuesto Preliminar de Masa}
+
+  \subsection{Presupuesto Preliminar de Potencia}
+
+  \subsection{Presupuesto Preliminar de Datos}
+
+\section{Secuendia de Operación}
+
+\section{Aseguramiento de Misión}
+
+  \subsection{Análisis de Confiabilidad}
+
+  \subsection{Análisis de Riesgos}
+
+  \subsection{Ensayos}
+
+\section{Plan de Proyecto}
+
+  \subsection{General}
+
+  \subsection{Cronograma}
+
+  \subsection{Costos}
