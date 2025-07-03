@@ -97,7 +97,6 @@
 \newcommand{\docn}[1]{\def\@docn{#1}}
 
 % UNIDADES UTILES
-{
 % --- Resistencias ---
 \newcommand{\ohm}{\,\Omega}
 \newcommand{\kohm}{\,\mathrm{k}\Omega}
@@ -158,7 +157,7 @@
 
 % --- Otros ---
 \newcommand{\percent}{\,\%}
-}
+\newcommand{\degree}{^{\circ}}
 
 % Estilo de capítulos y secciones
 \titleformat{name=\chapter,numberless}[block]
