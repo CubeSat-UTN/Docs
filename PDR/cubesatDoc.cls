@@ -92,7 +92,7 @@
 \newcommand{\titulo}[1]{\def\@titulo{#1}}
 \newcommand{\@subtitulo}{}  % Inicialmente vacío
 \newcommand{\subtitulo}[1]{\def\@subtitulo{#1}}
-\newcommand{\grupo}[1]{\def\@autores{#1}}
+\newcommand{\grupo}[1]{\def\@grupo{#1}}
 \newcommand{\fecha}[1]{\def\@fecha{#1}}
 \newcommand{\docn}[1]{\def\@docn{#1}}
 
@@ -150,6 +150,12 @@
 \newcommand{\us}{\,\mathrm{\mu s}}           % microsegundos
 \newcommand{\ns}{\,\mathrm{ns}}
 
+% --- distancia ---
+\newcommand{\um}{\,\mathrm{\mu m}}
+\newcommand{\mm}{\,\mathrm{mm}}
+\newcommand{\m}{\,\mathrm{m}}
+\newcommand{\km}{\,\mathrm{km}}
+
 % --- Otros ---
 \newcommand{\percent}{\,\%}
 }
@@ -192,7 +198,9 @@
       \vspace{15mm}
       {\LARGE\bfseries Facultad Regional Córdoba \par}
       \vspace{15mm}
-      {\Large\bfseries Nombre de grupo \par}
+      {\Large\bfseries \@grupo \par}
+      \vfill
+      {\Large\bfseries \@subtitulo \par}
       \vfill
       {\large\bfseries \@fecha\par}
       \vspace{10mm}
