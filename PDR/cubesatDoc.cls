@@ -26,6 +26,7 @@
 \RequirePackage{tabularx}
 \RequirePackage{array}
 \RequirePackage{wrapfig}
+\RequirePackage{pdflscape}
 
 % configuracion de hipervinculos
 \hypersetup{
@@ -43,51 +44,55 @@
   nomarginpar, includehead
 }
 % Encabezados y pies de página
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[C]{
-  \parbox{\textwidth}{
-    \begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}p{0.23 \textwidth}|
-                                     >{\centering\arraybackslash}X|
-                                     >{\centering\arraybackslash}p{0.23 \textwidth}|}
-      \hline
-      \begin{minipage}[c][1.1cm][c]{1cm}
-        \includegraphics[height=1cm]{cls/utn.png}
-      \end{minipage}
-      \begin{minipage}[c][1.1cm][c]{1.6cm}
-      Regional Córdoba
-      \end{minipage}
-      &
-      \begin{minipage}[c][1.1cm][c]{0.9 \linewidth}
-        \centering
-        \textbf{CUBESAT UTN 2025}
-      \end{minipage}
-      &
-      \begin{minipage}[c][1.1cm][c]{1cm}
-        \includegraphics[height=1cm]{cls/electronica.jpeg}
-      \end{minipage}
-      \\
-      \hline
-      \begin{minipage}[c][1.1cm][c]{0.85 \linewidth}
-        \centering
-        \textbf{\textit{DOC.N°:\@docn}}
-      \end{minipage}
-      &
-      \begin{minipage}[c][1.1cm][c]{0.9 \linewidth}
-        \centering
-        \textit{\@titulo}
-      \end{minipage}
-      &
-      \begin{minipage}[c][1.1cm][c]{0.85 \linewidth}
-        \centering
-        \textbf{\textit{\@fecha}}
-      \end{minipage} \\
-      \hline
-    \end{tabularx}
+
+\newcommand{\setCustomPageStyle}{
+  \pagestyle{fancy}
+  \fancyhf{}
+  \fancyhead[C]{
+    \parbox{\textwidth}{
+      \begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}p{0.23 \textwidth}|
+                                       >{\centering\arraybackslash}X|
+                                       >{\centering\arraybackslash}p{0.23 \textwidth}|}
+        \hline
+        \begin{minipage}[c][1.1cm][c]{1cm}
+          \includegraphics[height=1cm]{cls/utn.png}
+        \end{minipage}
+        \begin{minipage}[c][1.1cm][c]{1.6cm}
+        Regional Córdoba
+        \end{minipage}
+        &
+        \begin{minipage}[c][1.1cm][c]{0.9 \linewidth}
+          \centering
+          \textbf{CUBESAT UTN 2025}
+        \end{minipage}
+        &
+        \begin{minipage}[c][1.1cm][c]{1cm}
+          \includegraphics[height=1cm]{cls/electronica.jpeg}
+        \end{minipage}
+        \\
+        \hline
+        \begin{minipage}[c][1.1cm][c]{0.85 \linewidth}
+          \centering
+          \textbf{\textit{DOC.N°:\@docn}}
+        \end{minipage}
+        &
+        \begin{minipage}[c][1.1cm][c]{0.9 \linewidth}
+          \centering
+          \textit{\@titulo}
+        \end{minipage}
+        &
+        \begin{minipage}[c][1.1cm][c]{0.85 \linewidth}
+          \centering
+          \textbf{\textit{\@fecha}}
+        \end{minipage} \\
+        \hline
+      \end{tabularx}
+    }
   }
+  \fancyfoot[C]{Página \thepage\ de \pageref{LastPage}}
+  \renewcommand{\headrulewidth}{0pt}
 }
-\fancyfoot[C]{Página \thepage\ de \pageref{LastPage}}
-\renewcommand{\headrulewidth}{0pt}
+\setCustomPageStyle
 
 % Comandos personalizados
 \newcommand{\titulo}[1]{\def\@titulo{#1}}
