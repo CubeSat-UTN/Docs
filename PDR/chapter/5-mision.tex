@@ -105,7 +105,7 @@ a realizar, que sera detallada en la siguiente seccion.
     image//Giarda/Proceso de Enquistamiento.jpg
 
     Figura 5.1: Enquistamiento de Giardia Lamblia: del trofozoto al quiste. F, flagelos. Barra: 5
-    m
+
     Las imagenes de izquierda a derecha muestran un trofozoto vegetativo, trofozotos despues de 21 y
     42 horas de enquistamiento y un quiste resistente al agua. [2]
 
@@ -432,7 +432,25 @@ durante el proceso de ingeniera del CubeSat.
     El presupuesto de potencia se calculo considerando el caso mas desfavorable en cada uno
     de los componentes.
 
-    Cuadro 5.1: Consumo de corriente y potencia de los componentes en el caso mas desfavorable.
+    \begin{table}[H]
+    \centering
+    \resizebox{\textwidth}{!}{
+    \begin{tabular}{|l|c|c|c|c|c|c|}
+    \hline
+    \textbf{Componente} & \textbf{Cant.} & \textbf{Tensión [V]} & \textbf{Corriente [A]} & \textbf{Potencia [W]} & \textbf{Subtotal [W]} & \textbf{* [A]} \\
+    \hline
+    Raspberry Pi Zero 2 W & 1 & 5.0 & 0.26   & 1.30   & 1.30   & 0.35   \\
+    Sensor BMP280         & 1 & 3.3 & 0.0007 & 0.0023 & 0.0023 & 0.0006 \\
+    Sensor MPU9250        & 1 & 3.3 & 0.0039 & 0.0129 & 0.0129 & 0.0035 \\
+    Celdas Peltier 4x4 cm & 3 & 12.0& 0.833  & 10.00  & 30.00  & 8.10   \\
+    \hline
+    \textbf{Total}        & – & –   & –      & –      & \textbf{31.3152} & \textbf{8.45 @ 3.7V} \\
+    \hline
+    \end{tabular}
+    }
+    \caption{Consumo de corriente y potencia de los componentes en el caso más desfavorable.}
+    \label{tab:consumo_componentes}
+    \end{table}
 
   \subsection{Presupuesto Preliminar de Datos}
     Durante el vuelo se generaran y almacenaran diversos tipos de datos relacionados tanto
@@ -441,20 +459,105 @@ durante el proceso de ingeniera del CubeSat.
     Cada muestra registrada incluye el instante temporal y el valor medido del parametro, ocupando 4 bytes cada uno, lo que da un total de 8 bytes por muestra. Ademas, consideramos
     la mayor frecuencia de muestreo permitida por cada sensor.
 
+    \begin{table}[H]
+    \centering
+    \begin{tabular}{|l|c|}
+    \hline
+    \textbf{Vector} & \textbf{Tamaño de muestra} \\
+    \hline
+    Tiempo & 4 bytes \\
+    Valor  & 4 bytes \\
+    \hline
+    \textbf{Tamaño total} & \textbf{8 bytes} \\
+    \hline
+    \end{tabular}
+    \caption{Tamaño total fijo por muestra de cada parámetro}
+    \label{tab:tamanio_muestra}
+    \end{table}
 
+    \begin{itemize}
 
-    Cuadro 5.2: Tamano total fijo por muestra de cada parametro
-     Variables fsicas y ambientales:
+      \item \textbf{Variables fisicas y ambientales}
 
-    Cuadro 5.3: Volumen de datos total y de cada variable fsico-ambiental
-     Control de temperatura de las muestras celulares:
+      \begin{table}[H]
+      \centering
+      \begin{tabular}{|l|c|c|c|c|}
+      \hline
+      \textbf{Parámetro} & \textbf{Tipo} & \textbf{Frecuencia [Hz]} & \textbf{Muestras/4h} & \textbf{Tamaño [MB]} \\
+      \hline
+      Presión               & float & 157   & 2,260,800  & $\approx$ 8.63     \\
+      Temperatura ambiente  & float & 157   & 2,260,800  & $\approx$ 8.63     \\
+      Aceleración           & float & 4000  & 5,760,000  & $\approx$ 219.73   \\
+      Ángulo de giro        & float & 8000  & 11,520,000 & $\approx$ 439.45   \\
+      \hline
+      \textbf{Total estimado} & -    & -     & -         & $\boldsymbol{\approx 685.07}$ \\
+      \hline
+      \end{tabular}
+      \caption{Volumen de datos total y de cada variable físico-ambiental}
+      \label{tab:volumen_datos}
+      \end{table}
 
-    Cuadro 5.4: Volumen de datos de los controles de temperatura de las muestras celulares
-     Informacion grabada previamente:
+      \item \textbf{Control de temperatura de de las muestras celulares}
 
-    Cuadro 5.5: Consumo de almacenamiento de los componentes
+      \begin{table}[H]
+      \centering
+      \begin{tabular}{|l|c|c|c|c|}
+      \hline
+      \textbf{Parámetro} & \textbf{Tipo} & \textbf{Frecuencia [Hz]} & \textbf{Muestras/4h} & \textbf{Tamaño [MB]} \\
+      \hline
+      Temperatura ideal de cultivo & float & 157 & 2,260,800 & $\approx$ 8.63 \\
+      Temperatura menor            & float & 157 & 2,260,800 & $\approx$ 8.63 \\
+      Temperatura mayor            & float & 157 & 2,260,800 & $\approx$ 8.63 \\
+      Temperatura ambiente         & float & 157 & 2,260,800 & $\approx$ 8.63 \\
+      \hline
+      \textbf{Total estimado}      & -     & -   & -         & $\boldsymbol{\approx 34.52}$ \\
+      \hline
+      \end{tabular}
+      \caption{Volumen de datos de los controles de temperatura de las muestras celulares}
+      \label{tab:volumen_datos_temperatura}
+      \end{table}
 
-    Cuadro 5.6: Tamano total estimado
+      \item \textbf{Información gravada previamente}
+
+      \begin{table}[H]
+      \centering
+      \begin{tabular}{|l|c|c|}
+      \hline
+      \textbf{Software} & \textbf{Versión} & \textbf{Tamaño} \\
+      \hline
+      S.O. Raspberry Pi OS Lite (Debian 12.0 "bookworm") & - & $\approx$ 2.1~GB \\
+      Python                   & 3 & $\approx$ 27.5~\textit{MB} \\
+      Dependencias python      & 1 & $\approx$ 150~\textit{MB} \\
+      logrotate                & 1 & $\approx$ 100~\textit{KB} \\
+      chrony                   & 1 & $\approx$ 2~\textit{MB} \\
+      \hline
+      \textbf{Total estimado}  & - & $\boldsymbol{\approx 2.3~GB}$ \\
+      \hline
+      \end{tabular}
+      \caption{Consumo de almacenamiento de los componentes}
+      \label{tab:almacenamiento_componentes}
+      \end{table}
+  
+    \end{itemize}
+
+    \begin{table}[H]
+    \centering
+    \begin{tabular}{|l|c|}
+    \hline
+    \textbf{Apartado} & \textbf{Tamaño estimado [MB]} \\
+    \hline
+    Variables físicas              & 685.07 \\
+    Back up Variables físicas      & 685.07 \\
+    Temperaturas celulares         & 34.52  \\
+    Back up Temperaturas celulares & 34.52  \\
+    Información grabada previamente & 2355 \\
+    \hline
+    \textbf{Tamaño total}          & \textbf{3794.3} \\
+    \hline
+    \end{tabular}
+    \caption{Tamaño total estimado}
+    \label{tab:tamano_total_estimado}
+    \end{table}
 
     Teniendo en cuenta todos los datos a ser almacenados, estimamos un volumen total de
     aproximadamente 3.7 GB
@@ -469,49 +572,80 @@ durante el proceso de ingeniera del CubeSat.
     herramientas de analisis y simulaciones y a su vez un amplio catalogo de materiales con
     todas sus propiedades. Para nuestro CubeSat, decidimos emplear los analisis modales, de
     vibraciones aleatorias y de estructura estatica, de los cuales obtuvimos metricas como la
-
+    fatiga en diferentes puntos de la estructura, deformaciones dadas las condiciones de prueba
     y factor de seguridad para diferentes puntos.
-    Para las simulaciones fue necesario elegir un material para cada elemento separado que
-    forma parte de la estructura. En la figura (5.7) se puede ver la lista de materiales empleados
-    y algunas de sus propiedades importantes.
-    Material
 
-    Cuadro 5.7: Lista de materiales empleados.
+    Para las simulaciones fue necesario elegir un material para cada elemento separado que
+    forma parte de la estructura. En el Cuadro \ref{tab:materiales_empleados} se puede ver la
+    lista de materiales empleados y algunas de sus propiedades importantes.
+
+    \begin{table}[H]
+    \centering
+    \small % reduce un poco el tamaño de fuente para ajustar mejor
+    \begin{tabular}{|p{2.2cm}|p{2.3cm}|p{2.3cm}|p{2.5cm}|p{2cm}|p{2.5cm}|}
+    \hline
+    \textbf{Material} & \centering\textbf{Módulo de elasticidad} & \centering\textbf{Límite Elástico} & \centering\textbf{Límite de Rotura} & \centering\textbf{Densidad} & \centering\textbf{Usado en} \tabularnewline
+    \hline
+    Aleación de Aluminio & \centering $71 \cdot 10^9\,Pa$ & \centering $280 \cdot 10^6\,Pa$ & \centering $310 \cdot 10^6\,Pa$ & \centering $2770\,kg/m^3$ & Tapas y Esquinas \tabularnewline
+    \hline
+    Acero 4140 & \centering $212.5 \cdot 10^9\,Pa$ & \centering $652.2 \cdot 10^6\,Pa$ & \centering $1015 \cdot 10^6\,Pa$ & \centering $7850\,kg/m^3$ & Tornillería y Varillas \tabularnewline
+    \hline
+    Polipropileno & \centering $1461 \cdot 10^6\,Pa$ & \centering $34.6 \cdot 10^6\,Pa$ & \centering $37.62 \cdot 10^6\,Pa$ & \centering $903.4\,kg/m^3$ & Rieles de Apoyo y carcasas \tabularnewline
+    \hline
+    \end{tabular}
+    \caption{Lista de materiales empleados.}
+    \label{tab:materiales_empleados}
+    \end{table}
 
     Debido a que aun no esta completamente definido como sera la disposicion interna de
     cada subsistema del CubeSat, para las simulaciones colocamos objetos que tienen las mismas
     dimensiones y materiales de las carcasas de los subsistemas, pero solidos (rellenos) y ajustados
     para que tengan el peso necesario para que el CubeSat llegue al kilogramo.
-    Preparacion del modelo
-    El ensamblaje del CubeSat se exporta desde la plataforma de CAD online utilizada (Onshape) en formato
-    STEP. De ahi, se importa la geometra a ANSYS Mechanical, el cual nos permite crear la seleccion
-    y asignacion de los materiales, fijar superficies de contacto y
-    establecer superficies de fijacion. Luego de importar la geometria, ANSYS Mechanical
-    automaticamente genera la malla para su posterior uso en simulacion.
-    Es importante mencionar que para las simulaciones, los
-    tornillos y tuercas no estan siendo tomados en cuenta. Esto se debe a que la complejidad que le agrega
-    a la malla, y la cantidad de nodos que son necesarios
 
-    Figura 5.6: Geometria importada
+    \subsubsection{Preparacion del modelo}
 
-    para poder incluir las 32 tuercas y los 40 tornillos a
-    la malla y al analisis, excede los limites de la licencia
-    educativa por la cual estamos haciendo uso del software. En la figura (5.7) se puede ver la
-    malla generada.
+       El ensamblaje del CubeSat se exporta desde la plataforma de CAD online utilizada (Onshape) en formato
+       STEP. De ahi, se importa la geometra a ANSYS Mechanical, el cual nos permite crear la seleccion
+       y asignacion de los materiales, fijar superficies de contacto y
+       establecer superficies de fijacion. Luego de importar la geometria, ANSYS Mechanical
+       automaticamente genera la malla para su posterior uso en simulacion.
+       Es importante mencionar que para las simulaciones, los
+       tornillos y tuercas no estan siendo tomados en cuenta. Esto se debe a que la complejidad que le agrega
+       a la malla, y la cantidad de nodos que son necesarios
 
-    Figura 5.7: Malla generada automaticamente por ANSYS Mechanical.
-    Analisis Modal
+       Figura 5.6: Geometria importada
 
-    Para poder proceder a las simulaciones de vibraciones aleatorias (workmanship) y analisis
-    de integridad estructural, es necesario determinar las frecuencias modales del CubeSat. En
-    el cuadro (5.8) se pueden ver las frecuencias modales encontradas desde 0Hz hasta 2200Hz.
-    Modo
+       para poder incluir las 32 tuercas y los 40 tornillos a
+       la malla y al analisis, excede los limites de la licencia
+       educativa por la cual estamos haciendo uso del software. En la figura (5.7) se puede ver la
+       malla generada.
 
+       Figura 5.7: Malla generada automaticamente por ANSYS Mechanical.
 
-    Cuadro 5.8: Modos obtenidos.
+    \subsubsection{Analisis Modal}
 
-    Analisis de Vibraciones Aleatorias
-    En este analisis, se sometio el CubeSat a la curva G2 /Hz recomendada por la competencia. Como ANSYS Mechanical ya tiene incorporado el mecanismo para conectar puntos por
+      Para poder proceder a las simulaciones de vibraciones aleatorias (workmanship) y analisis
+      de integridad estructural, es necesario determinar las frecuencias modales del CubeSat. En
+      el Cuadro \ref{tab:modos_obtenidos} se pueden ver las frecuencias modales encontradas desde 0Hz hasta 2200Hz.
+      Modo
+
+      \begin{table}[H]
+      \centering
+      \begin{tabular}{|c|c|c|c|c|c|c|}
+      \hline
+      \textbf{Modo}       & 1           & 2           & 3           & 4         & 5           & 6          \\
+      \hline
+      \textbf{Frecuencia} & $536{,}89\,Hz$ & $541{,}52\,Hz$ & $908{,}97\,Hz$ & $1253\,Hz$ & $1616{,}2\,Hz$ & $1624{,}1\,Hz$ \\
+      \hline
+      \end{tabular}
+      \caption{Modos obtenidos.}
+      \label{tab:modos_obtenidos}
+      \end{table}
+
+    \subsubsection{Analisis de Vibraciones Aleatorias}
+
+    En este analisis, se sometio el CubeSat a la curva G2 /Hz recomendada por la competencia. Como
+    ANSYS Mechanical ya tiene incorporado el mecanismo para conectar puntos por
     tramos rectos, la curva resultante tiene que pasar por los puntos especificados en el cuadro
     (5.9), generando una curva como la de la figura (5.8).
 
@@ -535,7 +669,8 @@ durante el proceso de ingeniera del CubeSat.
     contacto de la tapa inferior y la varilla. Debido al limite de resolucion, este punto de alta
     presion puede ser una falla de simulacion, pero en caso de que no lo sea, sigue estando por
     debajo del limite de rotura del aluminio y del acero, por lo que no presenta un problema.
-    Analisis Estatico
+
+    \subsubsection{Analisis Estatico}
 
     Se espera que el CubeSat este sometido a una aceleraciones de hasta 20g en el sentido +z y hasta 1g en
     los sentidos x e y. Para las simulaciones, se utilizaron
@@ -573,7 +708,39 @@ durante el proceso de ingeniera del CubeSat.
     del CubeSat, con el objetivo de implementar estrategias de mitigacion que contribuyan a
     aumentar la confiabilidad y la seguridad del sistema en cada fase de la mision. Identificacion:
 
-    Cuadro 5.10: Analisis de Riesgos
+    \begin{longtable}{ | m{2.5cm} | m{3cm} | m{3cm} | m{6cm} | }
+      \caption{Análisis de Riesgos} \label{tab:analisis_riesgos} \\
+      \hline
+      \textbf{Riesgo} & \textbf{Causa} & \textbf{Impacto} & \textbf{Mitigación} \\
+      \hline
+      \endfirsthead
+
+      \hline
+      \textbf{Riesgo} & \textbf{Causa} & \textbf{Impacto} & \textbf{Mitigación} \\
+      \hline
+      \endhead
+
+      \hline
+      \endfoot
+
+      \hline
+      \endlastfoot
+
+      Rotura de cápsulas de muestras & Sobrecargas mecánicas o vibraciones excesivas & Pérdida parcial o total de las muestras biológicas & Diseño de porta-cápsulas amortiguadoras. Pruebas de vibración según estándar GEVS. Cierre redundante de las tapas. \\
+      \hline
+      Fallo del sistema de regulación térmica & Mal dimensionamiento de los elementos Peltier o fallo de controlador en vuelo. & Exposición de muestras a temperaturas fuera de rango. & Control de temperatura con sensores. Validación térmica en cámara climática. Modos de degradación segura que desactivan los elementos Peltier para reducir consumo. \\
+      \hline
+      Pérdida de datos por fallo de almacenamiento & Corrupción de tarjeta microSD o falla en conmutación RAID por script. & Pérdida parcial o total de registros de muestras. & Verificación periódica de integridad (checksum SHA-256). Script de conmutación automática probado en PDR. Redundancia de almacenamiento de datos críticos. \\
+      \hline
+      Fallo del suministro eléctrico & Sobrecarga de rieles, cortocircuito o desconexión no deseada. & Apagado de subsistemas. & Protección contra sobre-corriente y subtensión en PMS. Pruebas de ciclos de carga-descarga de batería. Rieles críticos alimentados desde canales independientes. \\
+      \hline
+      Mal funcionamiento de la imu o barómetro & Descalibración por choque mecánico o ruido eléctrico. & Imposibilidad de determinar fases de vuelo con precisión. & Pruebas previas en condiciones similares. \\
+      \hline
+      Contaminación o degradación de muestras biológicas & Fugas de medios de cultivo, exposición al ambiente. & Resultados experimentales no válidos, pérdida de muestras. & Sellado hermético de tubos. Uso de materiales biocompatibles. Control de humedad en bahía de muestras. Análisis de vacío. \\
+      \hline
+      Fallo de comunicación prelanzamiento y poslanzamiento  & Rotura de hardware por aterrizaje o vuelo. & Imposibilidad de monitoreo inmediato luego del lanzamiento. & Conexión por UART. \\
+      \hline
+    \end{longtable}
 
   \subsection{Ensayos}
     \subsubsection{Estructura}
