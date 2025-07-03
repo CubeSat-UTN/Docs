@@ -10,6 +10,7 @@
 \RequirePackage{amsmath, amsfonts}
 \RequirePackage{xfrac}
 \RequirePackage[table]{xcolor}
+\RequirePackage{longtable}
 \RequirePackage{float}
 \RequirePackage{enumitem}
 \RequirePackage{booktabs}
@@ -17,6 +18,7 @@
 \RequirePackage{tikz}
 \RequirePackage{titlesec}
 \RequirePackage{fancyhdr}
+\RequirePackage{lastpage}
 \RequirePackage{geometry}
 \RequirePackage[main=spanish, provide=*]{babel}
 \RequirePackage{hyperref}
@@ -83,7 +85,7 @@
     \end{tabularx}
   }
 }
-\cfoot{\thepage}
+\fancyfoot[C]{Página \thepage\ de \pageref{LastPage}}
 \renewcommand{\headrulewidth}{0pt}
 
 % Comandos personalizados
@@ -162,7 +164,7 @@
 \titleformat{\section} {\normalfont\Large\bfseries } {\thesection. }{0pt}{}
 \titlespacing*{\section} {12pt}{18pt plus 2pt minus 2pt}{8pt}
 
-\titleformat{\subsection} {\normalfont\large\bfseries}{}{0pt}{}
+\titleformat{\subsection} {\normalfont\large\bfseries}{\thesubsection. }{0pt}{}
 \titlespacing*{\subsection} {15pt}{12pt plus 1pt minus 1pt}{6pt}
 
 % Índice
