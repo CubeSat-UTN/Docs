@@ -308,6 +308,7 @@ durante el proceso de ingeniera del CubeSat.
       Sensor barometrico BMP280: utilizado para medir la presion atmosferica en funcion
       del tiempo. Esta variable es clave para estimar la altitud relativa durante el ascenso,
       identificar el apogeo y complementar el analisis inercial con una referencia absoluta.
+
       Sensor de temperatura ambiente: mide la temperatura interna del satelite, proporcionando
       informacion crtica sobre el entorno termico durante el vuelo, tanto para la
       mision principal como para el monitoreo de las condiciones que afectan a los organismos
@@ -327,48 +328,380 @@ durante el proceso de ingeniera del CubeSat.
       especficas en los compartimientos que contienen los microorganismos.
       El sistema esta compuesto por los siguientes elementos principales:
 
-       Celdas Peltier: dispositivos termoelectricos capaces de generar un gradiente de
-      temperatura al aplicarles una diferencia de potencial. Su funcionamiento permite
-      tanto calentar como enfriar las muestras, dependiendo de la polaridad y nivel de
-      corriente aplicada. Se utilizaran tres celdas Peltier para mantener muestras en
-      temperaturas distintas.
-      Sensores de temperatura individuales: dispuestos en cada modulo termico, permiten medir la
+      \begin{itemize}
+        \item Celdas Peltier: dispositivos termoelectricos capaces de generar un gradiente de
+          temperatura al aplicarles una diferencia de potencial. Su funcionamiento permite
+          tanto calentar como enfriar las muestras, dependiendo de la polaridad y nivel de
+          corriente aplicada. Se utilizaran tres celdas Peltier para mantener muestras en
+          temperaturas distintas.
 
-      temperatura en contacto directo con las muestras, proporcionando
-      una retroalimentacion precisa al sistema de control.
+        \item Sensores de temperatura individuales: dispuestos en cada modulo termico, permiten medir la
+          temperatura en contacto directo con las muestras, proporcionando
+            una retroalimentación precisa al sistema de control.
+      \end{itemize}
+
       El control de las celdas Peltier y la lectura de los sensores estara a cargo del OBC, que
       ajustara dinamicamente la potencia suministrada a cada celda a traves del PMS.
+
       \item \textbf{Payload Unit:}
 
 
     \end{itemize}
 
   \subsection{Herramientas de Calculo Empleadas}
+    Para el desarrollo, simulacion y verificacion de cada uno de los subsistemas involucrados,
+    se emplearan herramientas de calculo y software especficos que permitiran modelar los componentes
+    y sus comportamientos, estimar el consumo de recursos, organizar la adquisicion y
+    el procesamiento de datos, y validar el diseno general del sistema antes de su implementacion
+    fsica.
+
+    \begin{itemize}
+      \item ANSYS Discovery (FEM)
+      \item ANSYS Mechanical (FEM)
+      \item Onshape (CAD)
+      \item KiCad (CAD)
+    \end{itemize}
 
   \subsection{Estructura}
+    Para la estructura, tomamos inspiracion de un modelo disenado por EnduroSat [1]. El
+    modelo esta caracterizado por el uso de estructuras fabricadas con laminas de aluminio
+    plegadas, lo que le permite aprovechar al maximo el volumen del CubeSat, solo perdiendo
+    dos veces el ancho de la lamina utilizada por cada eje.
+
+    image/structure/render.png
+
+    Figura 5.5: Renderizado de la estructura propuesta
+
+    \subsubsection{Descripcion General}
+      Como se menciono previamente, la estructura disenada emplea laminas de aluminio de
+      2mm plegadas, para maximizar el volumen disponible, manteniendo una estructura que es
+      rgida, facil de fabricar y manteniendo un modulo de cizalladura bajo debido a todos los
+      puntos de fijacion disponibles. El CubeSat tambien dispone de ocho puntos de apoyo en
+      las caras +Z y -Z (rieles), los cuales son fabricados por impresion 3D (FDM), utilizando
+      Polipropileno como material, ya que no solo es liviano, si no que tambien es bastante ductil,
+      y su adhesion entre capas es muy buena.
+
+      Para el montaje de los componentes internos, la estructura integra cuatro varillas de
+      acero lisas, las cuales serviran para evitar movimientos en los ejes X e Y, no obstante, no hay
+      fijacion para el eje Z. Para evitar el movimiento de los diferentes subsistemas en el eje Z, es
+      necesario ocupar todo el largo de las varillas.
+      Los diferentes subsistemas se integran a la estructura en sus correspondientes carcasas,
+      fabricadas con una impresora 3D, utilizando el Polipropileno como material, que tiene muy
+      buenas propiedades de adhesion entre capas, permitiendo (en caso de ser necesario) crear
+      volumenes que sean hermeticos.
+
+    \subsubsection{Proceso de Integración}
+
+      El armado del CubeSat, comienza con la colocacion de la tapa inferior (plano -Z) sobre
+      el banco de armado, con los pliegues hacia arriba. A estos pliegues, se le colocan las cuatro
+      esquinas, fijandolas con los tornillos y tuercas autobloqueantes. Una vez colocados las cuatro
+      esquinas, se puede proceder a colocar las varillas en la cara interna de la tapa inferior (plano
+      -Z), utilizando los tornillos correspondientes. Despues de haber colocado las varillas, se puede
+      proceder a colocar los diferentes subsistemas uno por uno, conectandolos entre si. P1or ultimo,
+      se coloca la tapa superior (plano +Z), se fijan las varillas con los tornillos, y utilizando la
+      herramienta de ajuste disenada para acceder a las tuercas superiores, se colocan los tornillos
+      con las tuercas autobloqueantes respetando el orden De esquina al centro.
+
+    \subsubsection{Fabricación}
+
+      La fabricacion del CubeSat es relativamente simple, ya que solamente se requiere una
+      plancha de aluminio como materia prima para obtener el esqueleto basico del mismo. La
+      plancha de aluminio requiere ser cortada previo al plegado, ya que estos cortes implementan
+      geometras que no solo facilitan los pliegues, si no que en algunos casos los hacen posibles,
+      agregando puntos de alivio. Ademas de los cortes, es necesario hacer las perforaciones necesarias y tambien los avellanados, ya que se puede dificultar hacerlos despues del plegado
+      debido a la complejidad de la fijacion.
+      Los cortes de las planchas de aluminio se van a realizar utilizando una CNC, y los pliegues
+      con una plegadora de chapa.
+      Las varillas seran cortadas, frenteadas, perforadas y roscadas (interna) utilizando herramientas manuales
+
+    \subsubsection{Colocación de Muestras}
+
+      La estructura del CubeSat permitira que las muestras se puedan colocar despues de
+      finalizar el ensamblaje de la estructura. Esto se hace posible gracias a las aberturas de las
+      tapas, de las cuales la del plano +Z, va a ser para acceder a una tapa en la carcasa que aloje
+      el subsistema de carga util, y por donde se carguen las muestras a analizar. Esta tapa va a
+      ser fijada con la tornilleria correspondiente
 
   \subsection{Criterios de Margenes}
+    Para en analisis de presupuestos preliminares establecimos los margenes considerando las
+    condiciones mas desfavorables
 
   \subsection{Presupuesto Preliminar de Masa}
 
   \subsection{Presupuesto Preliminar de Potencia}
+    El presupuesto de potencia se calculo considerando el caso mas desfavorable en cada uno
+    de los componentes.
+
+    Cuadro 5.1: Consumo de corriente y potencia de los componentes en el caso mas desfavorable.
 
   \subsection{Presupuesto Preliminar de Datos}
+    Durante el vuelo se generaran y almacenaran diversos tipos de datos relacionados tanto
+    con la mision primaria como con la mision secundaria. A continuacion se detalla el presupuesto preliminar de almacenamiento de datos considerando un periodo de recoleccion de 4
+    horas.
+    Cada muestra registrada incluye el instante temporal y el valor medido del parametro, ocupando 4 bytes cada uno, lo que da un total de 8 bytes por muestra. Ademas, consideramos
+    la mayor frecuencia de muestreo permitida por cada sensor.
+
+
+
+    Cuadro 5.2: Tamano total fijo por muestra de cada parametro
+     Variables fsicas y ambientales:
+
+    Cuadro 5.3: Volumen de datos total y de cada variable fsico-ambiental
+     Control de temperatura de las muestras celulares:
+
+    Cuadro 5.4: Volumen de datos de los controles de temperatura de las muestras celulares
+     Informacion grabada previamente:
+
+    Cuadro 5.5: Consumo de almacenamiento de los componentes
+
+    Cuadro 5.6: Tamano total estimado
+
+    Teniendo en cuenta todos los datos a ser almacenados, estimamos un volumen total de
+    aproximadamente 3.7 GB
 
 \section{Secuendia de Operación}
 
 \section{Aseguramiento de Misión}
 
   \subsection{Análisis de Confiabilidad}
+    Para el analisis de la confiabilidad de la estructura del CubeSat, se empleo el suite de
+    herramientas de ANSYS, en su version educativa. El suite provee un extenso catalogo de
+    herramientas de analisis y simulaciones y a su vez un amplio catalogo de materiales con
+    todas sus propiedades. Para nuestro CubeSat, decidimos emplear los analisis modales, de
+    vibraciones aleatorias y de estructura estatica, de los cuales obtuvimos metricas como la
+
+    y factor de seguridad para diferentes puntos.
+    Para las simulaciones fue necesario elegir un material para cada elemento separado que
+    forma parte de la estructura. En la figura (5.7) se puede ver la lista de materiales empleados
+    y algunas de sus propiedades importantes.
+    Material
+
+    Cuadro 5.7: Lista de materiales empleados.
+
+    Debido a que aun no esta completamente definido como sera la disposicion interna de
+    cada subsistema del CubeSat, para las simulaciones colocamos objetos que tienen las mismas
+    dimensiones y materiales de las carcasas de los subsistemas, pero solidos (rellenos) y ajustados
+    para que tengan el peso necesario para que el CubeSat llegue al kilogramo.
+    Preparacion del modelo
+    El ensamblaje del CubeSat se exporta desde la plataforma de CAD online utilizada (Onshape) en formato
+    STEP. De ahi, se importa la geometra a ANSYS Mechanical, el cual nos permite crear la seleccion
+    y asignacion de los materiales, fijar superficies de contacto y
+    establecer superficies de fijacion. Luego de importar la geometria, ANSYS Mechanical
+    automaticamente genera la malla para su posterior uso en simulacion.
+    Es importante mencionar que para las simulaciones, los
+    tornillos y tuercas no estan siendo tomados en cuenta. Esto se debe a que la complejidad que le agrega
+    a la malla, y la cantidad de nodos que son necesarios
+
+    Figura 5.6: Geometria importada
+
+    para poder incluir las 32 tuercas y los 40 tornillos a
+    la malla y al analisis, excede los limites de la licencia
+    educativa por la cual estamos haciendo uso del software. En la figura (5.7) se puede ver la
+    malla generada.
+
+    Figura 5.7: Malla generada automaticamente por ANSYS Mechanical.
+    Analisis Modal
+
+    Para poder proceder a las simulaciones de vibraciones aleatorias (workmanship) y analisis
+    de integridad estructural, es necesario determinar las frecuencias modales del CubeSat. En
+    el cuadro (5.8) se pueden ver las frecuencias modales encontradas desde 0Hz hasta 2200Hz.
+    Modo
+
+
+    Cuadro 5.8: Modos obtenidos.
+
+    Analisis de Vibraciones Aleatorias
+    En este analisis, se sometio el CubeSat a la curva G2 /Hz recomendada por la competencia. Como ANSYS Mechanical ya tiene incorporado el mecanismo para conectar puntos por
+    tramos rectos, la curva resultante tiene que pasar por los puntos especificados en el cuadro
+    (5.9), generando una curva como la de la figura (5.8).
+
+
+    Figura 5.8: Curva (interpolada) de aceleracion G.
+
+    Esta curva se aplica a los tres ejes del CubeSat, lo que permite generar los siguientes
+    analisis de estres y tension.
+
+    %image/fem/ansys_cubesat-vibration_stress.png
+    Figura 5.9: Analisis de Estres.
+
+    %image/fem/ansys_cubesat-vibration_strain-x.png
+    Figura 5.10: Analisis de Tension en el eje X.
+
+    %image/fem/ansys_cubesat-vibration_strain-z.png
+    Figura 5.11: Analisis de Tension en el eje Y. Figura 5.12: Analisis de Tension en el eje Z.
+
+    Como se puede ver en la figura (5.9), para el analisis de Estres equivalente, el pico maximo
+    es de 108  106 P a. Analizando con mas detalle, este punto se encuentra en la superficie de
+    contacto de la tapa inferior y la varilla. Debido al limite de resolucion, este punto de alta
+    presion puede ser una falla de simulacion, pero en caso de que no lo sea, sigue estando por
+    debajo del limite de rotura del aluminio y del acero, por lo que no presenta un problema.
+    Analisis Estatico
+
+    Se espera que el CubeSat este sometido a una aceleraciones de hasta 20g en el sentido +z y hasta 1g en
+    los sentidos x e y. Para las simulaciones, se utilizaron
+    estos valores con un factor de 1.25x. Un detalle que cabe destacar, es que todas las deformaciones presentes
+    %image/fem/ansys_cubesat-static_accelerat
+    en estas simulaciones, estan amplificadas visualmente para facilitar la deteccion patrones y fallas en el
+    diseno de la estructura, por lo tanto, es fundamental
+    interpretar los resultados en funcion de las escalas de
+    color y los valores numericos de los distintos analisis,
+    y no tomar como referencia la magnitud visual de las
+    Figura 5.13: Vector de aceleracion padeformaciones mostradas. Aclarado esto, se muestran
+    ra la simulacion estatica.
+    a continuacion las simulaciones realizadas.
+
+    %image/fem/ansys_cubesat-static_stress.png
+    Figura 5.14: Analisis de Fatiga.
+    Figura 5.15: Analisis de Estres.
+    %image/fem/ansys_cubesat-static_safety.png
+    %image/fem/ansys_cubesat-static_deformation.png
+    Figura 5.16: Analisis de factor de seguridad. Figura 5.17: Analisis de deformacion total.
+
+    Como se observa en la figura 5.15, la tension
+    maxima alcanzada en la estructura es de 19  106 , Pa, valor significativamente inferior al
+    limite de rotura del material, lo que indica que no existe riesgo estructural bajo las
+    condiciones de carga previstas para el lanzamiento. Asimismo, la figura 5.16 muestra que el factor
+    de seguridad es uniforme en toda la estructura y alcanza un valor constante de 15, lo cual
+    proporciona un amplio margen respecto a posibles fallos. Finalmente, segun la figura 5.17,
+    la deformacion maxima experimentada por el CubeSat es de apenas 4, m, lo cual resulta
+    despreciable frente a las tolerancias mecanicas del sistema.
+
+    Concluimos entonces que nuestra propuesta de estructura es valida y soportara las condiciones de lanzamiento.
 
   \subsection{Análisis de Riesgos}
+    En esta seccion se identifican posibles fallos asociados al funcionamiento de los subsistemas
+    del CubeSat, con el objetivo de implementar estrategias de mitigacion que contribuyan a
+    aumentar la confiabilidad y la seguridad del sistema en cada fase de la mision. Identificacion:
+
+    Cuadro 5.10: Analisis de Riesgos
 
   \subsection{Ensayos}
+    \subsubsection{Estructura}
+    \subsubsection{Peso}
+    \subsubsection{Centro de masa}
+    Para determinar experimentalmente el centro de masa del satelite, colocamos una madera
+    rectangular de espesor mnimo sobre una superficie plana de modo que el lado mas estrecho
+    y largo se encuentre en contacto con la superficie. Arriba colocamos el CubeSat formando 4
+    angulos rectos, es decir que las direcciones sus aristas sean paralelas y perpendiculares a la
+    direccion de la madera. Deslizamos el satelite horizontalmente hasta encontrar un punto de
+    equilibrio, esa sera la coordenada del centro de masa en ese eje. repetimos el procedimiento
+    para los demas ejes y verificamos, en cada caso, que se encuentren a una distancia del centro
+    geometrico de a lo sumo 10 mm.
+
+    \subsubsection{Bateras}
+    \begin{itemize}
+      \item \textbf{Capacidad real:} este ensayo tiene como finalidad determinar la capacidad efectiva
+      de la batera, comparandola con la especificacion nominal del fabricante. Para ello, se
+      descargara la batera con una corriente constante conocida hasta alcanzar el voltaje
+      mnimo especificado. Se registrara el tiempo total de descarga para calcular la capacidad en mAh. El resultado permitira verificar si la batera puede sostener la demanda
+      energetica del sistema durante el tiempo requerido.
+
+      \item \textbf{Medicion de voltaje y corriente durante carga y descarga:} Durante las fases de
+      carga y descarga, se monitorearan de forma continua los valores de tension y corriente
+      entregados por la batera. Esto permitira evaluar la estabilidad de la fuente frente a
+      distintas condiciones de carga, as como detectar cadas de tension o comportamientos
+      no deseados que puedan comprometer la operacion de los subsistemas.
+    \end{itemize}
 
 \section{Plan de Proyecto}
 
   \subsection{General}
+    Para llevar a cabo la mision del CubeSat, se ha definido una estructura de trabajo que
+    divide al equipo en diferentes grupos, cada uno con responsabilidades especficas. Esta division
+    busca optimizar el desarrollo del proyecto mediante una organizacion eficiente de tareas y
+    recursos humanos.
+    \subsubsection{Organizacion del Equipo}
+      \begin{itemize}
+        \item \textbf{Project Manager (PM)}
+          Coordinador general del proyecto, responsable de la planificacion y del funcionamiento
+          sincronizado de todos los grupos y subsistemas.
+          \begin{itemize}
+            \item Cortesini Perez, Luciano Tomas
+          \end{itemize}
+        \item \textbf{Grupo Mecanico}
+         Encargado del diseno estructural del satelite.
+          \begin{itemize}
+            \item Cortesini Perez, Luciano Tomas
+            \item Palombo, Franco
+          \end{itemize}
+        \item \textbf{Grupo Electronica}
+          Responsable del diseno, desarrollo y pruebas de los subsistemas electronicos, incluyendo
+          potencia y sensores.
+          \begin{itemize}
+            \item Gil, Ignacio
+            \item Prieto, Angelo
+          \end{itemize}
+          \item \textbf{Grupo Software}
+          Encargado del desarrollo del software tanto embarcado como de recuperacion y procesamiento de datos.
+          \begin{itemize}
+            \item Adragna, Jimena Sofa
+            \item Koroch, Matias Adolfo
+            \item Montesinos, Dana Carolina
+          \end{itemize}
+        \item \textbf{Grupo de Divulgacion}
+          A medida de que nos interiorizabamos mas con nuestra mision e interactuabamos con
+          distintos profesionales, docentes e instituciones que nos brindaron su tiempo y conocimiento
+          como equipo nos empezamos a preguntar, de que manera podemos utilizar
+          nuestro proyecto para impactar el la sociedad?
+
+          Es asi como nace el grupo de Divulgacion para darle respuesta a una inquietud que
+          surgio fruto del desarrollo de este proyecto. Consideramos valioso compartir los trabajos
+          que se llevan a cabo en nuestra facultad para visibilizar el trabajo academico, motivar
+          a otros estudiantes, reconocer el valor de la investigacion cientfica como as tambien
+          crear puentes entre la universidad y la sociedad. No solo buscamos cumplir con los
+          objetivos tecnicos y cientficos de la mision, sino tambien inspirar y promover el interes
+          por la ciencia en la comunidad de nuestra region.
+
+          Es por esto que designamos un grupo encargado de documentar las distintas etapas
+          del proyecto registrando con fotos y videos, generando informes y difundiendo hacia la
+          comunidad por medio de distintas plataformas y redes sociales.
+
+          La implementacion del plan de comunicacion se desarrollara en dos fases. En una primer
+          instancia se evaluaran y estableceran los canales digitales y, para ellos, se crearan los
+          distintos perfiles institucionales con una identidad unificada en un marco educativo
+          y de divulgacion cientfica. Luego, el trabajo se basara en un proceso iterativo en el
+          que se documentara sistematicamente, se editara y adaptara el material multimedia y
+          calendario de publicacion programada, se realizaran las publicaciones pertinentes y se
+          realizara un monitoreo y ajuste basado en la retroalimentacion de la comunidad.
+
+          Estimamos no solo llegar a las personas sino tambien generar dialogo que sea fructfero
+          tanto para los demas como para el equipo, debido a esto planeamos ademas adaptar el
+          contenido segun los intereses del publico, reconocer sus contribuciones e incluir
+          herramientas que nos faciliten esta comunicacion bidireccional como formatos interactivos
+          de preguntas y respuestas, encuestas, sesiones en vivo, entre otras.
+          Encargados de la documentacion y difusion en el proyecto.
+          \begin{itemize}
+            \item Adragna, Jimena Sofa
+            \item Koroch, Matas Adolfo
+            \item Montesinos, Dana Carolina
+            \item Prieto, Angelo
+          \end{itemize}
+      \end{itemize}
+
 
   \subsection{Cronograma}
+    Con el objetivo de garantizar una ejecucion ordenada, eficiente y dentro de los plazos
+    establecidos, se elaboro un cronograma detallado para cada uno de los grupos de trabajo que
+    contempla las diferentes tareas ha realizar junto con los diferentes fechas y plazos estipulados
+    para cada una de ellas.
+
+    Utilizamos una herramienta basada en diagramas Gantt de gestion estrategica para lograr
+    visualizar con facilidad la secuencia logica de actividades, sus respectivas duraciones, y las
+    dependencias entre tareas.
+
+    Para el desarrollo de este proceso se tuvieron en cuenta distintas variables como las fechas
+    lmites, los objetivos planteados, la disponibilidad de tiempo, los recursos economicos y el
+    capital humano.
+
+    \subsubsection{Grupo Mecanico}
+    Para una visualizacion del cronograma, se remite al diagrama Gantt incluido en el anexo.
+    \subsubsection{Grupo Electronica}
+    Para una visualizacion del cronograma, se remite al diagrama Gantt incluido en el anexo,
+    figura 7.10 y figura 7.11.
+    \subsubsection{Grupo Software}
+    Para una visualizacion del cronograma, se remite al diagrama Gantt incluido en el anexo,
+    figura 7.12.
 
   \subsection{Costos}
+
+    Cuadro 5.11: Costos
