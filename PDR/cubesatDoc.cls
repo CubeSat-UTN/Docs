@@ -25,6 +25,7 @@
 \RequirePackage{eso-pic}
 \RequirePackage{tabularx}
 \RequirePackage{array}
+\RequirePackage{wrapfig}
 
 % configuracion de hipervinculos
 \hypersetup{

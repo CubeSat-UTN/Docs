@@ -469,39 +469,109 @@ durante el proceso de ingeniera del CubeSat.
     plegadas, lo que le permite aprovechar al maximo el volumen del CubeSat, solo perdiendo
     dos veces el ancho de la lamina utilizada por cada eje.
 
-    image/structure/render.png
-
-    Figura 5.5: Renderizado de la estructura propuesta
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=0.6\textwidth]{image/structure/render.png}
+      \caption{Renderizado de la estructura propuesta}
+      \label{fig:render}
+    \end{figure}
 
     \subsubsection{Descripcion General}
-      Como se menciono previamente, la estructura disenada emplea laminas de aluminio de
-      2mm plegadas, para maximizar el volumen disponible, manteniendo una estructura que es
-      rgida, facil de fabricar y manteniendo un modulo de cizalladura bajo debido a todos los
-      puntos de fijacion disponibles. El CubeSat tambien dispone de ocho puntos de apoyo en
-      las caras +Z y -Z (rieles), los cuales son fabricados por impresion 3D (FDM), utilizando
-      Polipropileno como material, ya que no solo es liviano, si no que tambien es bastante ductil,
-      y su adhesion entre capas es muy buena.
 
-      Para el montaje de los componentes internos, la estructura integra cuatro varillas de
-      acero lisas, las cuales serviran para evitar movimientos en los ejes X e Y, no obstante, no hay
-      fijacion para el eje Z. Para evitar el movimiento de los diferentes subsistemas en el eje Z, es
-      necesario ocupar todo el largo de las varillas.
-      Los diferentes subsistemas se integran a la estructura en sus correspondientes carcasas,
-      fabricadas con una impresora 3D, utilizando el Polipropileno como material, que tiene muy
-      buenas propiedades de adhesion entre capas, permitiendo (en caso de ser necesario) crear
-      volumenes que sean hermeticos.
+      \begin{wrapfigure}{l}{0.4\textwidth}
+        \centering
+        \includegraphics[width=0.4\textwidth]{image/structure/partes.png}
+        \caption{Vista trimétrica}
+        \label{fig:trimetrica}
+      \end{wrapfigure}
+      Como se mencionó previamente, la estructura del CubeSat fue diseñada a partir de láminas de aluminio
+      de 2mm de espesor plegadas, para maximizar el volumen interno disponible. Esta configuración permite
+      lograr una estructura rígida, de fabricación sencilla, y con un bajo peso de fabricación, gracias a
+      la gran cantidad de puntos de fijación distribuidos a lo largo de la estructura.
 
+      La estructura principal del CubeSat está compuesta por dos tapas, ubicadas en las caras +Z y -Z
+      (lids), unidas entre sí mediante cuatro esquineros (corners). Todas las piezas se fijan utilizando
+      tornillos M3 y tuercas autofrenantes. Los orificios de fijación están avellanados, evitando cualquier
+      protrusión externa.
+
+      La estructura del CubeSat, consta de 2 tapas, ubicadas en las caras +Z y -Z (lids), unidas a través
+      de 4 esquineros (corners). La fijación de cada una de estas partes se realiza mediante tornillos y
+      tuercas autofrenantes M3. Todos los agujeros llevan un corte exterior avellanado, logrando que el
+      CubeSat no tenga protuberancias.
+
+      \begin{wrapfigure}{r}{0.4\textwidth}
+        \centering
+        \includegraphics[width=0.4\textwidth]{image/structure/superior.png}
+        \caption{Vista superior, sin tapa}
+        \label{fig:superior}
+      \end{wrapfigure}
+      El CubeSat cuenta, además, con ocho puntos de apoyo ubicados en las caras +Y y -Y (sides),
+      fabricados mediante impresión 3D por Modelado por Deposición Fundida (FDM) en polietileno, un
+      material que se seleccionó por su baja densidad, lo cual reduce la masa total del sistema, y por
+      su buena capacidad de sellado y excelente adherencia entre capas, permitiendo que la resistencia
+      interna del CubeSat sea hermética.
+
+      Para el montaje de la electrónica, se diseñó una estructura interna compuesta por 3 separadores,
+      los cuales fijan los módulos en los ejes X e Y, no obstante, no hay fijación en el eje Z para
+      permitir el movimiento de los diferentes componentes, lo que permite aprovechar y ocupar todo el
+      volumen del CubeSat.
+
+      Los diferentes separadores se colocan de forma segura en sus correspondientes espacios en la
+      estructura, y se imprimen por separado utilizando la técnica de impresión 3D (FDM) en Polietileno,
+      que tiene muy buenas propiedades de adherencia entre capas, permitiendo (en caso de ser necesario)
+      crear volúmenes que sean herméticos.
     \subsubsection{Proceso de Integración}
 
       El armado del CubeSat, comienza con la colocacion de la tapa inferior (plano -Z) sobre
       el banco de armado, con los pliegues hacia arriba. A estos pliegues, se le colocan las cuatro
       esquinas, fijandolas con los tornillos y tuercas autobloqueantes. Una vez colocados las cuatro
       esquinas, se puede proceder a colocar las varillas en la cara interna de la tapa inferior (plano
-      -Z), utilizando los tornillos correspondientes. Despues de haber colocado las varillas, se puede
-      proceder a colocar los diferentes subsistemas uno por uno, conectandolos entre si. P1or ultimo,
+      -Z), utilizando los tornillos correspondientes.
+
+      \begin{figure}[H]
+        \begin{minipage}{0.49\textwidth}
+          \centering
+          \includegraphics[width=0.9\textwidth]{image/structure/integracion1.png}
+          \caption{Integración paso 1}
+          \label{fig:integracion1}
+        \end{minipage}
+        \begin{minipage}{0.49\textwidth}
+          \centering
+          \includegraphics[width=0.9\textwidth]{image/structure/integracion2.png}
+          \caption{Integración paso 2}
+          \label{fig:integracion2}
+        \end{minipage}
+      \end{figure}
+
+      Despues de haber colocado las varillas, se puede
+      proceder a colocar los diferentes subsistemas uno por uno, conectandolos entre si. luego
       se coloca la tapa superior (plano +Z), se fijan las varillas con los tornillos, y utilizando la
       herramienta de ajuste disenada para acceder a las tuercas superiores, se colocan los tornillos
       con las tuercas autobloqueantes respetando el orden De esquina al centro.
+
+      \begin{figure}[H]
+        \begin{minipage}{0.49\textwidth}
+          \centering
+          \includegraphics[width=0.9\textwidth]{image/structure/integracion3.png}
+          \caption{Integración paso 3}
+          \label{fig:integracion3}
+        \end{minipage}
+        \begin{minipage}{0.49\textwidth}
+          \centering
+          \includegraphics[width=0.9\textwidth]{image/structure/integracion4.png}
+          \caption{Integración paso 4}
+          \label{fig:integracion4}
+        \end{minipage}
+      \end{figure}
+
+      Finalmente, se colcan los rieles a presión, para asegurar una sujeción firme
+      estos deben ser enfriados previamente.
+      \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\textwidth]{image/structure/integracion5.png}
+        \caption{Integración paso 5}
+        \label{fig:integracion5}
+      \end{figure}
 
     \subsubsection{Fabricación}
 
@@ -509,11 +579,26 @@ durante el proceso de ingeniera del CubeSat.
       plancha de aluminio como materia prima para obtener el esqueleto basico del mismo. La
       plancha de aluminio requiere ser cortada previo al plegado, ya que estos cortes implementan
       geometras que no solo facilitan los pliegues, si no que en algunos casos los hacen posibles,
-      agregando puntos de alivio. Ademas de los cortes, es necesario hacer las perforaciones necesarias y tambien los avellanados, ya que se puede dificultar hacerlos despues del plegado
+      agregando puntos de alivio. Ademas de los cortes, es necesario hacer las perforaciones necesarias
+      y tambien los avellanados, ya que se puede dificultar hacerlos despues del plegado
       debido a la complejidad de la fijacion.
+      \begin{figure}[H]
+        \begin{minipage}{0.5\textwidth}
+          \centering
+          \includegraphics[width=50mm]{image/structure/cornerFlat.png}
+          \caption{Integración paso 3}
+          \label{fig:corner previo al plegado}
+        \end{minipage}
+        \begin{minipage}{0.5\textwidth}
+          \centering
+          \includegraphics[width=50mm]{image/structure/lidFlat.png}
+          \caption{Lid previo al plegado}
+          \label{fig:lidfp}
+        \end{minipage}
+      \end{figure}
       Los cortes de las planchas de aluminio se van a realizar utilizando una CNC, y los pliegues
       con una plegadora de chapa.
-      Las varillas seran cortadas, frenteadas, perforadas y roscadas (interna) utilizando herramientas manuales
+      Las varillas seran cortadas, frenteadas, perforadas y roscadas (interna) en un torno.
 
     \subsubsection{Colocación de Muestras}
 
