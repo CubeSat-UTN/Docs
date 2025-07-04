@@ -878,7 +878,7 @@ durante el proceso de ingeniera del CubeSat.
         \begin{minipage}{0.5\textwidth}
           \centering
           \includegraphics[width=\textwidth]{image/fem/ansys_cubesat-vibration_strain-z.png}
-          \caption{Analisis de tensión en el eje Y}
+          \caption{Analisis de tensión en el eje Z}
           \label{fig:fem_strain-z}
         \end{minipage}
       \end{figure}
@@ -915,13 +915,13 @@ durante el proceso de ingeniera del CubeSat.
         \begin{minipage}{0.5\textwidth}
           \centering
           \includegraphics[width=\textwidth]{image/fem/ansys_cubesat-static_strain.png}
-          \caption{analisis de fatiga}
+          \caption{Analisis de fatiga}
           \label{fig:fem_static_strain}
         \end{minipage}
         \begin{minipage}{0.5\textwidth}
           \centering
           \includegraphics[width=\textwidth]{image/fem/ansys_cubesat-static_stress.png}
-          \caption{analisis de estrés}
+          \caption{Analisis de estrés}
           \label{fig:fem_static_stress}
         \end{minipage}
       \end{figure}
@@ -929,13 +929,13 @@ durante el proceso de ingeniera del CubeSat.
         \begin{minipage}{0.5\textwidth}
           \centering
           \includegraphics[width=\textwidth]{image/fem/ansys_cubesat-static_safety.png}
-          \caption{analisis de factor de seguridad}
+          \caption{Analisis de factor de seguridad}
           \label{fig:fem_static_safety}
         \end{minipage}
         \begin{minipage}{0.5\textwidth}
           \centering
           \includegraphics[width=\textwidth]{image/fem/ansys_cubesat-static_deformation.png}
-          \caption{analisis de deformación total}
+          \caption{Analisis de deformación total}
           \label{fig:fem_static_deformation}
         \end{minipage}
       \end{figure}
@@ -1118,5 +1118,34 @@ durante el proceso de ingeniera del CubeSat.
     figura 7.12.
 
   \subsection{Costos}
+    Para confeccionar el Cuadro \ref{tab:costos} se tomaron como referencia precios de
+    Mercado Libre.
 
-    Cuadro 5.11: Costos
+
+   \begin{table}[H]
+     \centering
+     \begin{tabular}{|l|r|r|r|}
+     \hline
+     \textbf{Item} & \textbf{Cantidad} & \textbf{Precio} & \textbf{Subtotal} \\
+     \hline
+     RPY Zero 2W                            & 1     & 36299  & 36299  \\
+     Micro SD 16GB                          & 2     & 13619  & 27238  \\
+     Arduino NANO                           & 1     & 6190   & 6190   \\
+     Plancha de aluminio 2mm (medio m2)     & 0.25  & 82000  & 20500  \\
+     Varillas acero inox 5mm                & 1     & 4900   & 4900   \\
+     Baterías lipo 3,7V 3200mAh 90x40x4mm   & 5     & 4399   & 21995  \\
+     Filamento PP-T grilon3                 & 0.5   & 24780  & 12390  \\
+     Placa de cobre virgen 20x10cm          & 1     & 6700   & 6700   \\
+     Celda peltier 30x30mm                  & 3     & 18700  & 56100  \\
+     Thermistor ntc 100k                    & 3     & 3890   & 11670  \\
+     MPU9250 (IMU)                          & 1     & 22490  & 22490  \\
+     BMP280                                 & 1     & 2344   & 2344   \\
+     Componentes electrónicos varios        & 1     & 50000  & 50000  \\
+     Tornillería                            & 1     & 20000  & 20000  \\
+     \hline
+     \multicolumn{3}{|r|}{\textbf{Total:}} & \textbf{298816} \\
+     \hline
+     \end{tabular}
+     \caption{Costos}
+     \label{tab:costos}
+   \end{table}
