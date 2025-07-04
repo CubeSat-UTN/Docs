@@ -70,64 +70,71 @@
 \begin{landscape}
 \section{Cronograma Electrónica}
 
-  \resizebox{245mm}{!}{
-  \begin{tikzpicture}
+ \begin{figure}[H]
+  \centering
+  \resizebox{25cm}{!}{%
   \begin{ganttchart}[
-      hgrid,
-      vgrid,
-      time slot format=isodate,
-      time slot unit=day,
-      calendar week text={Week \currentweek},
-      title/.append style={draw=none, fill=none},
-      title label font=\bfseries\footnotesize,
-      title label anchor/.style={below=-1.6ex},
-      bar/.append style={fill=blue!30},
-      progress label text={},
-      group right shift=0,
-      group top shift=.6,
-      group height=.3,
-      group peaks height=.2
-    ]{2025-07-01}{2025-08-31}
+    hgrid,
+    vgrid,
+    time slot format=isodate,
+    x unit=0.65cm,
+    y unit chart=1cm,
+    bar/.append style={fill=blue!40},
+    milestone/.append style={fill=orange},
+    milestone label font=\bfseries\small,
+    bar label font=\small\slshape
+    ]{2025-07-04}{2025-08-31}
 
   % July
   \gantttitlecalendar{month=name,week,day} \\
 
   % Tasks
-  \ganttgroup{Validación de Subsistemas}{2025-07-01}{2025-07-12} \\
-  \ganttbar{Revisión de PCB}{2025-07-01}{2025-07-06} \\
-  \ganttbar{Revisión de Sensores}{2025-07-03}{2025-07-12} \\
+  \ganttgroup{Validación de Subsistemas}{2025-07-04}{2025-07-09} \\
+  \ganttbar[name=rev-pcb]{Revisión de PCB}{2025-07-04}{2025-07-09} \\
+  \ganttbar[name=rev-sensores]{Revisión de Sensores}{2025-07-04}{2025-07-09} \\
 
-  \ganttgroup{CAD Computadora de Vuelo}{2025-07-07}{2025-07-27} \\
-  \ganttbar{Diseño esquemático}{2025-07-07}{2025-07-13} \\
-  \ganttbar{Diseño PCB}{2025-07-11}{2025-07-18} \\
-  \ganttmilestone{Team Meeting}{2025-07-14} \\
-  \ganttbar{CAD PMS}{2025-07-15}{2025-07-26} \\
+  \ganttgroup{CAD Computadora de Vuelo}{2025-07-10}{2025-07-17} \\
+  \ganttbar[name=diseño-esq1]{Diseño esquemático}{2025-07-10}{2025-07-12} \\
+  \ganttlinkedbar{Diseño PCB}{2025-07-13}{2025-07-16} \\
+  \ganttlinkedmilestone[name=team-meating1]{Team Meeting}{2025-07-17} \\
+  \ganttlink{rev-pcb}{diseño-esq1}
+  \ganttlink[link mid=.25]{rev-sensores}{diseño-esq1}
+  
+  \ganttgroup{CAD PMS}{2025-07-18}{2025-07-24} \\
+  \ganttbar[name=diseño-esq2]{Diseño esquemático}{2025-07-18}{2025-07-20} \\
+  \ganttlinkedbar{Diseño PCB}{2025-07-20}{2025-07-23} \\
+  \ganttlinkedmilestone[name=team-meating2]{Team Meeting}{2025-07-24} \\ 
+  \ganttlink[link mid=.25]{team-meating1}{diseño-esq2}
 
-  \ganttgroup{CAD TRU}{2025-07-20}{2025-08-02} \\
-  \ganttbar{Diseño esquemático}{2025-07-20}{2025-07-25} \\
-  \ganttbar{Diseño PCB}{2025-07-23}{2025-07-30} \\
-  \ganttmilestone{Team Meeting}{2025-07-28} \\
+  \ganttgroup{CAD TRU}{2025-07-25}{2025-07-31} \\
+  \ganttbar[name=diseño-esq3]{Diseño esquemático}{2025-07-25}{2025-07-27} \\
+  \ganttlinkedbar{Diseño PCB}{2025-07-27}{2025-07-30} \\
+  \ganttlinkedmilestone{Team Meeting}{2025-07-31} \\
+  \ganttlink[link mid=.25]{team-meating2}{diseño-esq3}
 
-  \ganttgroup{Prototipo Mínimo Funcional}{2025-07-30}{2025-08-06} \\
-  \ganttbar{Armado}{2025-07-30}{2025-08-06} \\
-  \ganttmilestone{Entrega CDR}{2025-08-06} \\
+  \ganttlinkedbar{Prototipo Mínimo Funcional}{2025-08-01}{2025-08-07} \\
+  \ganttlinkedmilestone[name=entrega-cdr]{Entrega CDR}{2025-08-08} \\
 
-  \ganttgroup{Construcción 1ra versión}{2025-08-07}{2025-08-18} \\
-  \ganttbar{Planchado de PCBs}{2025-08-07}{2025-08-08} \\
-  \ganttbar{Soldado de componentes}{2025-08-09}{2025-08-10} \\
-  \ganttbar{Verificación de test points}{2025-08-10}{2025-08-11} \\
-  \ganttbar{Interconexión de sistemas}{2025-08-12}{2025-08-14} \\
-  \ganttbar{Identificación de errores}{2025-08-14}{2025-08-18} \\
+  \ganttgroup{Construcción 1ra versión}{2025-08-09}{2025-08-18} \\
+  \ganttbar[name=planchado]{Planchado de PCBs}{2025-08-09}{2025-08-11} \\
+  \ganttlinkedbar{Soldado de componentes}{2025-08-12}{2025-08-12} \\
+  \ganttlinkedbar[name=test-points]{Verificación de test points}{2025-08-13}{2025-08-14} \\
+  \ganttlinkedbar{Interconexión de sistemas}{2025-08-15}{2025-08-18} \\
+  \ganttbar[name=iden-errores]{Identificación de errores}{2025-08-15}{2025-08-18} \\
+  \ganttlink[link mid=.25]{test-points}{iden-errores}  
+  \ganttlink[link mid=.25]{entrega-cdr}{planchado}
 
   \ganttgroup{Construcción Producto Final}{2025-08-19}{2025-08-31} \\
-  \ganttbar{Planchado de PCB}{2025-08-19}{2025-08-20} \\
-  \ganttbar{Soldado}{2025-08-20}{2025-08-22} \\
-  \ganttbar{Funcionamiento en conjunto}{2025-08-22}{2025-08-27} \\
-  \ganttbar{Identificación de posibles fallas}{2025-08-27}{2025-08-31} \\
+  \ganttbar[name=planchado2]{Planchado de PCB}{2025-08-19}{2025-08-22} \\
+  \ganttlink[link mid=.25]{iden-errores}{planchado2} 
+  \ganttlinkedbar[name=soldado]{Soldado}{2025-08-23}{2025-08-24} \\
+  \ganttlinkedbar[name=func-conj]{Funcionamiento en conjunto}{2025-08-24}{2025-08-31} \\
+  \ganttbar[name=iden-fallas]{Identificación de posibles fallas}{2025-08-24}{2025-08-31} \\
 
+  \ganttlink[link mid=.25]{soldado}{iden-fallas}
   \end{ganttchart}
-  \end{tikzpicture}
   }
+  \end{figure}
 
   \section{Cronograma software}
     \begin{figure}[H]
@@ -275,8 +282,6 @@
       \end{ganttchart}
       }
     \end{figure}
-
-
 
 \end{landscape}
 \restoregeometry
