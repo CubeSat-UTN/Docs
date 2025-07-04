@@ -76,7 +76,7 @@ a realizar, que sera detallada en la siguiente seccion.
     diferentes nichos durante su travesa a por vectores y huespedes, desarrollando extraordinarios
     mecanismos de adaptacion que les permiten sobrevivir en condiciones que de otro modo
     los destruiran. Particularmente, Giardia Lamblia experimenta un proceso de diferenciacion
-    a quiste, conocido como enquistamiento.
+    a quiste, conocido como enquistamiento \cite{gda}.
 
     El ciclo de vida simple de dos etapas de Giardia es central para su exito como parasito. Los
     quistes de Giardia Lamblia pueden sobrevivir en agua dulce fra durante meses, y se necesitan
@@ -222,7 +222,7 @@ durante el proceso de ingeniera del CubeSat.
         \draw[stealth-, line width=1pt] (9.833, 4.208) -- (9.833, 4.958);
         \draw[stealth-, line width=1pt] (9.833, 1.958) -- (9.833, 2.958);
         \draw[stealth-stealth, line width=1pt] (4.167, 0.667) -- (4.167, -0.333);
-        \node[shape=rectangle, draw, line width=1pt, inner sep=0, minimum width=2.298cm, minimum height=0.965cm] at (-0.167, 1.333){} node [anchor=center, align=center, text width=1.91cm, inner sep=5.5pt] at (-0.167, 1.333){HMI};
+        \node[shape=rectangle, draw, line width=1pt, inner sep=0, minimum width=2.298cm, minimum height=0.965cm] at (-0.167, 1.333){} node [anchor=center, align=center, text width=1.91cm, inner sep=5.5pt] at (-0.167, 1.333){\acrshort{hmi}};
         \draw[stealth-, line width=1pt] (9.833, -0.333) |- (9.833, 0.708);
         \draw[stealth-stealth, line width=1pt] (7.333, 1.333) -- (6.333, 1.333);
         \draw[stealth-stealth, line width=1pt] (1, 1.333) -- (2, 1.333);
@@ -244,7 +244,7 @@ durante el proceso de ingeniera del CubeSat.
       \item \textbf{\acrfull{pms}:} es el subsistema responsable de administrar
       de forma segura y eficiente la energa proveniente de las bateras. Su funcion principal es
       distribuir la energa electrica a los distintos subsistemas del CubeSat, garantizando condiciones adecuadas de operacion, mediante el monitoreo, la proteccion y la regulacion.
-      Especficamente, las funciones del PMS son:
+      Especficamente, las funciones del \acrshort{pms} son:
       \begin{itemize}
         \item Proteger contra cortocircuitos o sobrecarga de corriente,
         \item Permite medir parametros electricos (como tension y corriente) y gestionar el
@@ -255,7 +255,7 @@ durante el proceso de ingeniera del CubeSat.
           para cargas especficas.
       \end{itemize}
 
-      En definitiva, el PMS asegura que los requerimientos energeticos del CubeSat sean
+      En definitiva, el \acrshort{pms} asegura que los requerimientos energeticos del CubeSat sean
       satisfechos de manera controlada, segura y adaptable durante toda la mision.
 
       \begin{figure}[H]
@@ -303,32 +303,32 @@ durante el proceso de ingeniera del CubeSat.
         \label{fig:sistema_pms}
       \end{figure}
 
-      \item \textbf{On-board Computer (OBC):} Tiene como funcion principal la gestion autonoma de
+      \item \textbf{On-board Computer (\acrshort{obc}):} Tiene como funcion principal la gestion autonoma de
         la mision durante todo el vuelo. Esta unidad esta basada en una Raspberry Pi Zero 2
         W, equipada con el sistema operativo Raspberry Pi OS Lite, una version optimizada sin
         entorno grafico. Esta configuracion fue seleccionada por su bajo consumo energetico,
         reducido tamano y alta estabilidad operativa, cualidades esenciales para sistemas embarcados
         en entornos aeroespaciales.
 
-        El proposito fundamental del OBC es tomar y almacenar el registro de los sensores,
+        El proposito fundamental del \acrshort{obc} es tomar y almacenar el registro de los sensores,
         tales como aceleracion, orientacion, presion atmosferica y temperatura ambiente. Estas
         mediciones son gestionadas por el firmware, y almacenadas de forma estructurada
         facilitando su posterior lectura y procesamiento.
 
-        El OBC tambien es responsable del control de subsistemas clave, como el de regulacion
+        El \acrshort{obc} tambien es responsable del control de subsistemas clave, como el de regulacion
         termica, utilizado para la mision secundaria mediante celdas Peltier, a traves del Sistema de
-        administracion de energa (PMS) y la lectura de los sensores ambientales. Ademas, mantiene una
-        constante conexion con este sistema, actuando como intermediario entre el PMS y el HMI, lo
+        administracion de energa (\acrshort{pms}) y la lectura de los sensores ambientales. Ademas, mantiene una
+        constante conexion con este sistema, actuando como intermediario entre el \acrshort{pms} y el \acrshort{hmi}, lo
         que permite el monitoreo en tiempo real la integridad energetica de los distintos subsistemas.
         Entre los parametros supervisados se incluyen el consumo de corriente, niveles de tension y el
         estado de carga de la batera.
 
-        Una vez finalizado el vuelo, los archivos generados son relevados por el HMI, habilitando
+        Una vez finalizado el vuelo, los archivos generados son relevados por el \acrshort{hmi}, habilitando
         su analisis y visualizacion. Esta separacion entre adquisicion y procesamiento permite una asignacion
         eficiente de recursos, manteniendo al sistema embarcado centrado
         exclusivamente en tareas crticas durante la mision.
 
-        A traves del HMI sera posible establecer el modo de operacion de la OBC. Teniendo los siguientes modos de operacion:
+        A traves del \acrshort{hmi} sera posible establecer el modo de operacion de la \acrshort{obc}. Teniendo los siguientes modos de operacion:
         \begin{itemize}
            \item \textbf{Apagado}
            \item \textbf{Pre Lanzamiento:} Inicializa los subsistemas y corrobora el correcto funcionamiento.
@@ -346,14 +346,14 @@ durante el proceso de ingeniera del CubeSat.
           \begin{tikzpicture}
             % Paths, nodes and wires:
             \node[shape=rectangle, draw, line width=1pt, inner sep=0, minimum width=3.965cm, minimum height=1.319cm] at (9.667, 3.344){} node [anchor=center, align=center, text width=3.577cm, inner sep=5.5pt] at (9.667, 3.344){Raspberry Pi Zero 2W};
-            \node[shape=rectangle, draw, line width=1pt, inner sep=0, minimum width=3.298cm, minimum height=1.631cm] at (6, 0.167){} node [anchor=center, align=center, text width=2.91cm, inner sep=5.5pt] at (6, 0.167){IMU\\(Sensor incercial)};
-            \node[shape=rectangle, draw, line width=1pt, inner sep=0, minimum width=3.298cm, minimum height=1.298cm] at (14.667, 4.333){} node [anchor=center, align=center, text width=2.91cm, inner sep=5.5pt] at (14.667, 4.333){Almacenamiento redundante};
-            \node[shape=rectangle, draw, line width=1pt, inner sep=0, minimum width=2.131cm, minimum height=1.298cm] at (4.333, 3.333){} node [anchor=center, align=center, text width=1.743cm, inner sep=5.5pt] at (4.333, 3.333){HMI};
-            \node[shape=rectangle, draw, line width=1pt, inner sep=0, minimum width=3.298cm, minimum height=1.631cm] at (9.667, 0.167){} node [anchor=center, align=center, text width=2.91cm, inner sep=5.5pt] at (9.667, 0.167){BMP\\(Temperatura y presión)};
-            \node[shape=rectangle, draw, line width=1pt, inner sep=0, minimum width=3.298cm, minimum height=1.631cm] at (13.333, 0.167){} node [anchor=center, align=center, text width=2.91cm, inner sep=5.5pt] at (13.333, 0.167){Sensores de temperatura individuales};
+            \node[shape=rectangle, draw, line width=1pt, inner sep=0, minimum width=3.298cm, minimum height=1.631cm] at (6, 0.167){} node [anchor=center, align=center, text width=2.91cm, inner sep=5.5pt] at (6, 0.167){\acrshort{imu}\\(Inertial Sensor)};
+            \node[shape=rectangle, draw, line width=1pt, inner sep=0, minimum width=3.298cm, minimum height=1.298cm] at (14.667, 4.333){} node [anchor=center, align=center, text width=2.91cm, inner sep=5.5pt] at (14.667, 4.333){Redundant Data Storage};
+            \node[shape=rectangle, draw, line width=1pt, inner sep=0, minimum width=2.131cm, minimum height=1.298cm] at (4.333, 3.333){} node [anchor=center, align=center, text width=1.743cm, inner sep=5.5pt] at (4.333, 3.333){\acrshort{hmi}};
+            \node[shape=rectangle, draw, line width=1pt, inner sep=0, minimum width=3.298cm, minimum height=1.631cm] at (9.667, 0.167){} node [anchor=center, align=center, text width=2.91cm, inner sep=5.5pt] at (9.667, 0.167){Temperature and Pressure};
+            \node[shape=rectangle, draw, line width=1pt, inner sep=0, minimum width=3.298cm, minimum height=1.631cm] at (13.333, 0.167){} node [anchor=center, align=center, text width=2.91cm, inner sep=5.5pt] at (13.333, 0.167){Individual Temperature Sensors};
             \node[shape=rectangle, draw, line width=1pt, dash pattern={on 4pt off 4pt}, inner sep=0, minimum width=11.298cm, minimum height=2.298cm] at (9.667, 0.167){};
-            \node[shape=rectangle, draw, line width=1pt, inner sep=0, minimum width=3.298cm, minimum height=1.298cm] at (14.667, 2.333){} node [anchor=center, align=center, text width=2.91cm, inner sep=5.5pt] at (14.667, 2.333){Almacenamiento};
-            \node[shape=rectangle, draw, line width=1pt, inner sep=0, minimum width=3.965cm, minimum height=1.298cm] at (9.667, 5.667){} node [anchor=center, align=center, text width=3.577cm, inner sep=5.5pt] at (9.667, 5.667){Gestión de Energía};
+            \node[shape=rectangle, draw, line width=1pt, inner sep=0, minimum width=3.298cm, minimum height=1.298cm] at (14.667, 2.333){} node [anchor=center, align=center, text width=2.91cm, inner sep=5.5pt] at (14.667, 2.333){Data Storage};
+            \node[shape=rectangle, draw, line width=1pt, inner sep=0, minimum width=3.965cm, minimum height=1.298cm] at (9.667, 5.667){} node [anchor=center, align=center, text width=3.577cm, inner sep=5.5pt] at (9.667, 5.667){\acrshort{pms}};
             \node[shape=rectangle, inner sep=0, minimum width=0.917cm, minimum height=0.667cm] at (9.208, 4.5){} node [anchor=center, align=center, text width=0.564cm, inner sep=5pt] at (9.208, 4.5){\scriptsize I2C};
             \draw[stealth-stealth] (7.667, 3.333) -- (5.417, 3.333);
             \draw[stealth-stealth] (9.667, 4.021) -- (9.667, 5);
@@ -362,13 +362,13 @@ durante el proceso de ingeniera del CubeSat.
             \draw[stealth-stealth] (14.667, 3.667) -| (14.667, 3);
           \end{tikzpicture}
           \caption{Diagrama de subsistema ”On-board Computer”}
-          \label{fig:sistema_general}
+          \label{fig:sistema_obc}
         \end{figure}
 
-      \item \textbf{Human-Machine Interface HMI:} Existen dos formas principales de interactuar con
+      \item \textbf{Human-Machine Interface \acrshort{hmi}:} Existen dos formas principales de interactuar con
         el CubeSat. La primera es mediante llaves de hardware que se conectan fsicamente al
         de interaccion es a traves de una interfaz web segura (HTTPS), accesible mediante una
-        red local generada por la OBC.
+        red local generada por la \acrshort{obc}.
 
         Adicionalmente, y reservadas exclusivamente para situaciones de emergencia, estaran
         habilitadas la conexion SSH (a traves de la misma red local) y la conexion UART
@@ -406,7 +406,7 @@ durante el proceso de ingeniera del CubeSat.
 
         Este subsistema incluye los siguientes componentes:
 
-        Unidad de Medicion Inercial (IMU) MPU9250: permite registrar la aceleracion en los
+        \acrfull{imu} MPU9250: permite registrar la aceleracion en los
         tres ejes, as como los angulos de orientacion (roll, pitch y yaw) mediante acelerometros,
         giroscopios y magnetómetros. Estos datos son fundamentales para la identificación de fases
         del vuelo.
@@ -414,7 +414,7 @@ durante el proceso de ingeniera del CubeSat.
         Sensor de presión y temperatura BMP280: Encargado de tomar los datos de temperatura y presión
         atmosfericas. Siendo esta última clave en la determinación de la altura del CubeSat.
 
-      \item \textbf{Thermal Regulation Unit (TRU):} tiene como objetivo controlar activamente la
+      \item \textbf{Thermal Regulation Unit (\acrshort{tru}):} tiene como objetivo controlar activamente la
         temperatura de distintas muestras biologicas durante el vuelo del CubeSat, en el contexto de la
         mision secundaria. Este sistema sirve para generar condiciones termicas
         especficas en los compartimientos que contienen los microorganismos.
@@ -432,8 +432,8 @@ durante el proceso de ingeniera del CubeSat.
             una retroalimentación precisa al sistema de control.
       \end{itemize}
 
-      El control de las celdas Peltier y la lectura de los sensores estara a cargo del OBC, que
-      ajustara dinamicamente la potencia suministrada a cada celda a traves del PMS.
+      El control de las celdas Peltier y la lectura de los sensores estara a cargo del \acrshort{obc}, que
+      ajustara dinamicamente la potencia suministrada a cada celda a traves del \acrshort{pms}.
 
       \item \textbf{Payload Unit:}
 
@@ -454,7 +454,7 @@ durante el proceso de ingeniera del CubeSat.
     \end{itemize}
 
   \subsection{Estructura}
-    Para la estructura, tomamos inspiracion de un modelo disenado por EnduroSat [1]. El
+    Para la estructura, tomamos inspiracion de un modelo disenado por EnduroSat \cite{endurosat}. El
     modelo esta caracterizado por el uso de estructuras fabricadas con laminas de aluminio
     plegadas, lo que le permite aprovechar al maximo el volumen del CubeSat, solo perdiendo
     dos veces el ancho de la lamina utilizada por cada eje.
@@ -968,11 +968,11 @@ durante el proceso de ingeniera del CubeSat.
       \hline
       Fallo del sistema de regulación térmica & Mal dimensionamiento de los elementos Peltier o fallo de controlador en vuelo. & Exposición de muestras a temperaturas fuera de rango. & Control de temperatura con sensores. Validación térmica en cámara climática. Modos de degradación segura que desactivan los elementos Peltier para reducir consumo. \\
       \hline
-      Pérdida de datos por fallo de almacenamiento & Corrupción de tarjeta microSD o falla en conmutación RAID por script. & Pérdida parcial o total de registros de muestras. & Verificación periódica de integridad (checksum SHA-256). Script de conmutación automática probado en PDR. Redundancia de almacenamiento de datos críticos. \\
+      Pérdida de datos por fallo de almacenamiento & Corrupción de tarjeta microSD o falla en conmutación RAID por script. & Pérdida parcial o total de registros de muestras. & Verificación periódica de integridad (checksum SHA-256). Script de conmutación automática probado en \acrshort{pdr}. Redundancia de almacenamiento de datos críticos. \\
       \hline
-      Fallo del suministro eléctrico & Sobrecarga de rieles, cortocircuito o desconexión no deseada. & Apagado de subsistemas. & Protección contra sobre-corriente y subtensión en PMS. Pruebas de ciclos de carga-descarga de batería. Rieles críticos alimentados desde canales independientes. \\
+      Fallo del suministro eléctrico & Sobrecarga de rieles, cortocircuito o desconexión no deseada. & Apagado de subsistemas. & Protección contra sobre-corriente y subtensión en \acrshort{pms}. Pruebas de ciclos de carga-descarga de batería. Rieles críticos alimentados desde canales independientes. \\
       \hline
-      Mal funcionamiento de la imu o barómetro & Descalibración por choque mecánico o ruido eléctrico. & Imposibilidad de determinar fases de vuelo con precisión. & Pruebas previas en condiciones similares. \\
+      Mal funcionamiento de la \acrshort{imu} o barómetro & Descalibración por choque mecánico o ruido eléctrico. & Imposibilidad de determinar fases de vuelo con precisión. & Pruebas previas en condiciones similares. \\
       \hline
       Contaminación o degradación de muestras biológicas & Fugas de medios de cultivo, exposición al ambiente. & Resultados experimentales no válidos, pérdida de muestras. & Sellado hermético de tubos. Uso de materiales biocompatibles. Control de humedad en bahía de muestras. Análisis de vacío. \\
       \hline
@@ -1133,7 +1133,7 @@ durante el proceso de ingeniera del CubeSat.
      Placa de cobre virgen 20x10cm          & 1     & 6700   & 6700   \\
      Celda peltier 30x30mm                  & 3     & 18700  & 56100  \\
      Thermistor ntc 100k                    & 3     & 3890   & 11670  \\
-     MPU9250 (IMU)                          & 1     & 22490  & 22490  \\
+     MPU9250 (\acrshort{imu})               & 1     & 22490  & 22490  \\
      BMP280                                 & 1     & 2344   & 2344   \\
      Componentes electrónicos varios        & 1     & 50000  & 50000  \\
      Tornillería                            & 1     & 20000  & 20000  \\
