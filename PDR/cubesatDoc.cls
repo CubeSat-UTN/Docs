@@ -27,6 +27,9 @@
 \RequirePackage{array}
 \RequirePackage{wrapfig}
 \RequirePackage{pdflscape}
+\RequirePackage{pgfgantt}
+\RequirePackage{biblatex}
+\RequirePackage[toc]{glossaries}
 
 % configuracion de hipervinculos
 \hypersetup{
