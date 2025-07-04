@@ -646,8 +646,9 @@ durante el proceso de ingeniera del CubeSat.
           Raspberry Py Zero & 1                                 & $12.1 \,g/u$          & $12.1 \, g$ \\ \hline
           Celdas Peltier    & 3                                 & $24 \, g/u$           & $72 \, g$ \\ \hline
           Carcasas Subsust. & -                                 & $0,92 \, g/cm^3$      & $150 \, g$ \\ \hline
-          \textbf{Total}    & -                                 & -                     & $698.46 \, g$
+          \textbf{Total}    & -                                 & -                     & $698.46 \, g$ \\ \hline
         \end{tabular}
+        \caption{Presupuesto de Pesos.}
       \end{table}
 
       Consideramos que con el margen de aproximadamente $300 \, g$ sobrantes, los componentes de cada subsistema
@@ -1058,37 +1059,58 @@ durante el proceso de ingeniera del CubeSat.
     \end{longtable}
 
   \subsection{Ensayos}
+    En esta seccion se detallan los ensayos que se realizaran a los distintos prototipos que surgiran durante el
+    desarrollo del CubeSat, que serviran para validar y obtener una retroalimentacion del proceso de diseño.
+
+    Sobre el producto final se realzaran ensayos mas exhaustivos que seran detallados en el CDR.
+
     \subsubsection{Estructura}
+      Para determinar la integridad estructural se realizaran distintos tipos de pruebas, donde las condiciones de cada
+      una seran acordes a las del lanzamiento, y tambien se realizaran pruebas extremas, para encontrar los limites de
+      la estructura y poder ampliar el margen de seguridad. Para lograr esto, se realizaran varias estructuras, y se las
+      rellenara con subsistemas vacios pero con el peso necesario para llegar al regimen.
+
+      Las pruebas que se realizaran a la estructura son:
+      \begin{itemize}
+        \item Prueba de vibraciones: Se somete el prototipo a una cama de vibraciones para determinar si se mantiene en
+          forma durante todo el rango de frecuencias y mas.
+        \item Prueba de caida: Se somete el prototipo a pruebas de caida de diferentes alturas y buscando que impacte en
+          diferentes puntos de la estructura para probar la rigidez estructural y capacidad de contencion de las
+          carcasas de los subsistemas.
+        \item Prueba de fuerzas: Se somete el prototipo a fuerzas (que ingresan y egresan a la estructura) ejercidas en
+          puntos criticos donde las tensiones pueden alcanzar picos y generar deformaciones.
+      \end{itemize}
     \subsubsection{Peso}
+      Para determinar que el CubeSat se encuentra dentro del regimen, a medida que se vayan haciendo los diferentes
+      prototipos se pesara todo el CubeSat que se tenga hasta el momento para tener estimaciones mas precisas de peso, y
+      poder llegar con el margen de tolerancias especificado sin tener que hacer cambios grandes.
+
     \subsubsection{Centro de masa}
-    Para determinar experimentalmente el centro de masa del CubeSat, colocamos una madera
-    rectangular de espesor mínimo sobre una superficie plana de modo que el lado mas estrecho
-    y largo se encuentre en contacto con la superficie. Arriba colocamos el CubeSat formando 4
-    ángulos rectos, es decir que las direcciones sus aristas sean paralelas y perpendiculares a la
-    dirección de la madera. Deslizamos el CubeSat horizontalmente hasta encontrar un punto de
-    equilibrio, esa sera la coordenada del centro de masa en ese eje. repetimos el procedimiento
-    para los demás ejes y verificamos, en cada caso, que se encuentren a una distancia del centro
-    geométrico de a lo sumo 10 mm.
+      Para determinar experimentalmente el centro de masa del CubeSat, colocamos una madera rectangular de espesor
+      mínimo sobre una superficie plana de modo que el lado mas estrecho y largo se encuentre en contacto con la
+      superficie. Arriba colocamos el CubeSat formando 4 ángulos rectos, es decir que las direcciones sus aristas sean
+      paralelas y perpendiculares a la dirección de la madera. Deslizamos el CubeSat horizontalmente hasta encontrar un
+      punto de equilibrio, esa sera la coordenada del centro de masa en ese eje. repetimos el procedimiento para los
+      demás ejes y verificamos, en cada caso, que se encuentren a una distancia del centro geométrico de a lo sumo 10
+      mm.
 
     \subsubsection{Baterías}
-    \begin{itemize}
-      \item \textbf{Capacidad real:} este ensayo tiene como finalidad determinar la capacidad efectiva
-      de la batería, comparándola con la especificación nominal del fabricante. Para ello, se
-      descargara la batería con una corriente constante conocida hasta alcanzar el voltaje
-      mínimo especificado. Se registrara el tiempo total de descarga para calcular la capacidad en mAh. 
-      El resultado permitirá verificar si la batería puede sostener la demanda
-      energética del sistema durante el tiempo requerido.
+      \begin{itemize}
+        \item \textbf{Capacidad real:} este ensayo tiene como finalidad determinar la capacidad efectiva de la batería,
+          comparándola con la especificación nominal del fabricante. Para ello, se descargara la batería con una
+          corriente constante conocida hasta alcanzar el voltaje mínimo especificado. Se registrara el tiempo total de
+          descarga para calcular la capacidad en mAh.  El resultado permitirá verificar si la batería puede sostener la
+          demanda energética del sistema durante el tiempo requerido.
 
-      \item \textbf{Medición de voltaje y corriente durante carga y descarga:} Durante las fases de
-      carga y descarga, se monitorearan de forma continua los valores de tensión y corriente
-      entregados por la batería. Esto permitirá evaluar la estabilidad de la fuente frente a
-      distintas condiciones de carga, as como detectar cadas de tensión o comportamientos
-      no deseados que puedan comprometer la operación de los subsistemas.
+        \item \textbf{Medición de voltaje y corriente durante carga y descarga:} Durante las fases de carga y descarga,
+          se monitorearan de forma continua los valores de tensión y corriente entregados por la batería. Esto permitirá
+          evaluar la estabilidad de la fuente frente a distintas condiciones de carga, as como detectar cadas de tensión
+          o comportamientos no deseados que puedan comprometer la operación de los subsistemas.
 
-      \item \textbf{Medición de temperatura:} durante los ensayos anteriores se registrará también la evolución térmica 
-      de la batería. Esto permitirá identificar posibles sobrecalentamientos que puedan comprometer la seguridad o el 
-      rendimiento del sistema.
-    \end{itemize}
+        \item \textbf{Medición de temperatura:} durante los ensayos anteriores se registrará también la evolución
+          térmica de la batería. Esto permitirá identificar posibles sobrecalentamientos que puedan comprometer la
+          seguridad o el rendimiento del sistema.
+      \end{itemize}
 
 \section{Plan de Proyecto}
 
