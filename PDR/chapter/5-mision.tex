@@ -367,8 +367,16 @@ durante el proceso de ingeniera del CubeSat.
 
       \item \textbf{Human-Machine Interface \acrshort{hmi}:} Existen dos formas principales de interactuar con
         el CubeSat. La primera es mediante llaves de hardware que se conectan físicamente al
-        de interacción es a través de una interfaz web segura (HTTPS), accesible mediante una
-        red local generada por la \acrshort{obc}.
+        de interacción es a través de una interfaz web mediante protocolo HTTP, accesible mediante una
+        red local generada por la \acrshort{obc}. En la Figura \ref{fig:hmi-arq} se puede ver la arquitectura
+        de la página antes mencionada.
+
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=0.6\textwidth]{image/hmi/arquitectura.jpeg}
+          \caption{Vista arquitectónica despliegue}
+          \label{fig:hmi-arq}
+        \end{figure}
 
         Adicionalmente, y reservadas exclusivamente para situaciones de emergencia, estarán
         habilitadas la conexión SSH (a través de la misma red local) y la conexión UART
