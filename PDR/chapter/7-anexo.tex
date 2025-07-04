@@ -68,7 +68,7 @@
   \end{figure}
 
 \begin{landscape}
-\section{Cronograma Electrónica}
+\section{Cronograma Electrónica (Hardware)}
 
  \begin{figure}[H]
   \centering
@@ -132,6 +132,54 @@
   \ganttbar[name=iden-fallas]{Identificación de posibles fallas}{2025-08-24}{2025-08-31} \\
 
   \ganttlink[link mid=.25]{soldado}{iden-fallas}
+  \end{ganttchart}
+  }
+  \end{figure}
+
+
+\section{Cronograma Electrónica (Firmware)}
+
+ \begin{figure}[H]
+  \centering
+  \resizebox{25cm}{!}{%
+  \begin{ganttchart}[
+    hgrid,
+    vgrid,
+    time slot format=isodate,
+    x unit=0.65cm,
+    y unit chart=1cm,
+    bar/.append style={fill=blue!40},
+    milestone/.append style={fill=orange},
+    milestone label font=\bfseries\small,
+    bar label font=\small\slshape
+    ]{2025-08-09}{2025-10-10}
+
+  % July
+  \gantttitlecalendar{month=name,week,day} \\
+
+  % Tasks
+  \ganttgroup{Construcción 1ra versión}{2025-08-09}{2025-08-18} \\
+  \ganttbar{Testing Subsistemas}{2025-08-15}{2025-08-18} \\
+
+  \ganttgroup{Construcción Producto Final}{2025-08-19}{2025-08-31} \\
+  \ganttbar[name=testing1]{Testing Subsistemas}{2025-08-25}{2025-08-31} \\
+  
+  \ganttgroup{Planificación de Firmware}{2025-09-01}{2025-09-08}\\
+  \ganttbar[name=diagrama-flujo]{Diagrama de flujo}{2025-09-01}{2025-09-02} \\ 
+  \ganttlinkedbar{Definición de Procesos}{2025-09-03}{2025-09-04} \\
+  \ganttlinkedbar{Definición de Archivos}{2025-09-05}{2025-09-06} \\
+  \ganttlinkedbar[name=def-funciones]{Definición de Funciones}{2025-09-07}{2025-09-08} \\
+  \ganttlink[link mid=.25]{testing1}{diagrama-flujo}
+
+  \ganttgroup{Desarrollo de Firmware}{2025-09-09}{2025-09-28}\\
+  \ganttbar[name=prog-drivers]{Programación de Drivers}{2025-09-09}{2025-09-16} \\ 
+  \ganttlinkedbar{Interrupciones y Manejo de Eventos}{2025-09-17}{2025-09-19} \\
+  \ganttlinkedbar{Lógica integrada}{2025-09-20}{2025-09-25} \\
+  \ganttlinkedbar{API de Datos}{2025-09-26}{2025-09-28} \\
+  \ganttlink[link mid=.25]{def-funciones}{prog-drivers}
+
+  \ganttmilestone{Informe prelanzamiento}{2025-10-10}
+
   \end{ganttchart}
   }
   \end{figure}
