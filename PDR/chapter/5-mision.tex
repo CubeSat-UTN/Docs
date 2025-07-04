@@ -264,7 +264,7 @@ durante el proceso de ingeniera del CubeSat.
       energéticos del CubeSat durante su operación.
 
       \item \textbf{\acrfull{pms}:} es el subsistema responsable de administrar
-      de forma segura y eficiente la energía proveniente de las baterías. Su función principal es
+      de forma segura y eficiente la energía proveniente de las baterías o de una fuente externa. Su función principal es
       distribuir la energía eléctrica a los distintos subsistemas del CubeSat, garantizando condiciones adecuadas de operación, mediante el monitoreo, la protección y la regulación.
       Específicamente, las funciones del \acrshort{pms} son:
       \begin{itemize}
@@ -276,6 +276,12 @@ durante el proceso de ingeniera del CubeSat.
           del CubeSat, como 3.3V para sensores, 5V para la computadora de abordo y 12V
           para cargas especificas.
       \end{itemize}
+
+      Con la finalidad de disminuir la carga en las baterias, se suministrará energia al PMS por medio de una fuente de
+      alimentacion externa durante la fase inicial del control de temperatura ya que este es momento donde las celdas
+      de peltier demandan mayor cantidad de energia, drenando rapidamente la carga de las baterias. Al llegar a las
+      temperaturas deseadas, ya la demanda de energia es mucho menor, posibilitando la desconexion de la fuente externa sin
+      perjudicar la autonomia del CubeSat.
 
       En definitiva, el \acrshort{pms} asegura que los requerimientos energéticos del CubeSat sean
       satisfechos de manera controlada, segura y adaptable durante toda la misión.
