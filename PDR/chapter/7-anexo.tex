@@ -59,6 +59,90 @@
   \end{figure}
 
 \begin{landscape}
+\section{Cronograma Mecánica}
+
+ \begin{figure}[H]
+  \centering
+  \resizebox{25cm}{!}{%
+  \begin{ganttchart}[
+    hgrid,
+    vgrid,
+    time slot format=isodate,
+    x unit=0.65cm,
+    y unit chart=1cm,
+    bar/.append style={fill=blue!40},
+    milestone/.append style={fill=orange},
+    milestone label font=\bfseries\small,
+    bar label font=\small\slshape
+    ]{2025-07-04}{2025-08-22}
+
+  % Tasks
+  % Encabezado
+  \gantttitlecalendar{month=name,week,day} \\
+
+  \ganttgroup{Primer Prototipo (impreso en 3D)}{2025-07-04}{2025-07-09} \\
+  \ganttbar{Impresión}{2025-07-04}{2025-07-06} \\
+  \ganttbar{Integración}{2025-07-07}{2025-07-08} \\
+  \ganttbar{Ensayos}{2025-07-08}{2025-07-09} \\
+
+  \ganttgroup{Producto Mínimo}{2025-07-10}{2025-08-08} \\
+
+  \ganttgroup{Segundo Prototipo (aluminio)}{2025-07-10}{2025-07-24} \\
+  \ganttbar{Contacto Proveedores}{2025-07-10}{2025-07-14} \\
+  \ganttbar{Correcciones de diseño}{2025-07-15}{2025-07-18} \\
+  \ganttbar{Mecanizado}{2025-07-19}{2025-07-22} \\
+  \ganttbar{Plegado}{2025-07-23}{2025-07-24} \\
+
+  \ganttgroup{Desarrollo de Carcasas}{2025-07-10}{2025-07-24} \\
+  \ganttbar{\acrshort{pms}}{2025-07-10}{2025-07-12} \\
+  \ganttbar{\acrshort{obc}}{2025-07-13}{2025-07-15} \\
+  \ganttbar{\acrshort{pu}}{2025-07-16}{2025-07-21} \\
+  \ganttbar{Impresión 3D}{2025-07-21}{2025-07-24} \\
+
+  \ganttbar{Integración General}{2025-07-25}{2025-07-30} \\
+  \ganttbar{Ensayos}{2025-07-31}{2025-08-07} \\
+
+  \ganttmilestone{Entrega \acrshort{cdr}}{2025-08-08} \\
+
+  \ganttgroup{Producto Final}{2025-08-11}{2025-08-22} \\
+  \ganttbar{Correcciones de diseño)}{2025-08-11}{2025-08-22} \\
+
+  \end{ganttchart}
+  }
+  \end{figure}
+  \begin{figure}[H]
+   \centering
+   \resizebox{25cm}{!}{%
+   \begin{ganttchart}[
+     hgrid,
+     vgrid,
+     time slot format=isodate,
+     x unit=0.65cm,
+     y unit chart=1cm,
+     bar/.append style={fill=blue!40},
+     milestone/.append style={fill=orange},
+     milestone label font=\bfseries\small,
+     bar label font=\small\slshape
+     ]{2025-08-22}{2025-10-10}
+
+   % Tasks
+   % Encabezado
+   \gantttitlecalendar{month=name,week,day} \\
+
+  \ganttgroup{Producto Final}{2025-08-22}{2025-09-30} \\
+   \ganttbar{Mecanizado}{2025-08-22}{2025-08-26} \\
+   \ganttbar{Plegado}{2025-08-27}{2025-08-28} \\
+   \ganttbar{Impresión 3D}{2025-08-22}{2025-08-22} \\
+   \ganttbar{Integración (Modulos funcionales)}{2025-08-29}{2025-09-09} \\
+   \ganttbar{Ensayos finales}{2025-09-10}{2025-09-30} \\
+
+   % Milestone Informe final
+   \ganttmilestone{Informe prelanzamiento}{2025-10-10}
+
+   \end{ganttchart}
+   }
+  \end{figure}
+
 \section{Cronograma Electrónica (Hardware)}
 
  \begin{figure}[H]
@@ -90,7 +174,7 @@
   \ganttlinkedmilestone[name=team-meating1]{Team Meeting}{2025-07-17} \\
   \ganttlink{rev-pcb}{diseño-esq1}
   \ganttlink[link mid=.25]{rev-sensores}{diseño-esq1}
-  
+
   \ganttgroup{CAD PMS}{2025-07-18}{2025-07-24} \\
   \ganttbar[name=diseño-esq2]{Diseño esquemático}{2025-07-18}{2025-07-20} \\
   \ganttlinkedbar{Diseño PCB}{2025-07-20}{2025-07-23} \\
@@ -154,7 +238,7 @@
 
   \ganttgroup{Construcción Producto Final}{2025-08-19}{2025-08-31} \\
   \ganttbar[name=testing1]{Testing Subsistemas}{2025-08-25}{2025-08-31} \\
-  
+
   \ganttgroup{Planificación de Firmware}{2025-09-01}{2025-09-08}\\
   \ganttbar[name=diagrama-flujo]{Diagrama de flujo}{2025-09-01}{2025-09-02} \\ 
   \ganttlinkedbar{Definición de Procesos}{2025-09-03}{2025-09-04} \\
