@@ -767,7 +767,7 @@ durante el proceso de ingeniera del CubeSat.
 
     \begin{table}[H]
     \centering
-    \small % reduce un poco el tamaño de fuente para ajustar mejor
+    \small
     \begin{tabular}{|p{2.2cm}|p{2.3cm}|p{2.3cm}|p{2.5cm}|p{2cm}|p{2.5cm}|}
     \hline
     \textbf{Material} & \centering\textbf{Módulo de elasticidad} & \centering\textbf{Límite Elástico} & \centering\textbf{Límite de Rotura} & \centering\textbf{Densidad} & \centering\textbf{Usado en} \tabularnewline
@@ -790,23 +790,36 @@ durante el proceso de ingeniera del CubeSat.
 
     \subsubsection{Preparacion del modelo}
 
-       El ensamblaje del CubeSat se exporta desde la plataforma de CAD online utilizada (Onshape) en formato
-       STEP. De ahi, se importa la geometra a ANSYS Mechanical, el cual nos permite crear la seleccion
-       y asignacion de los materiales, fijar superficies de contacto y
-       establecer superficies de fijacion. Luego de importar la geometria, ANSYS Mechanical
-       automaticamente genera la malla para su posterior uso en simulacion.
-       Es importante mencionar que para las simulaciones, los
-       tornillos y tuercas no estan siendo tomados en cuenta. Esto se debe a que la complejidad que le agrega
-       a la malla, y la cantidad de nodos que son necesarios
+      \noindent
+      \begin{minipage}{\textwidth}
+        \begin{wrapfigure}{r}{0.4\textwidth}
+          \centering
+          \includegraphics[width=0.4\textwidth]{image/fem/ansys_cubesat-geometry.png}
+          \caption{Geometría importada}
+          \label{fig:fem_geo}
+        \end{wrapfigure}
+        \hspace*{2em}
+        El ensamblaje del CubeSat se exporta desde la plataforma de CAD online utilizada (Onshape) en formato
+        STEP. De ahi, se importa la geometra a ANSYS Mechanical, el cual nos permite crear la seleccion
+        y asignacion de los materiales, fijar superficies de contacto y
+        establecer superficies de fijacion. Luego de importar la geometria, ANSYS Mechanical
+        automaticamente genera la malla para su posterior uso en simulacion.
+        Es importante mencionar que para las simulaciones, los
+        tornillos y tuercas no estan siendo tomados en cuenta. Esto se debe a que la complejidad que le agrega
+        a la malla, y la cantidad de nodos que son necesarios para poder incluir las 32 tuercas y los 40 tornillos a
+        la malla y al analisis, excede los limites de la licencia
+        educativa por la cual estamos haciendo uso del software. En la figura (5.7) se puede ver la malla generada.
 
-       Figura 5.6: Geometria importada
+        Para la correcta visualización de las imagenes presentes en esta sección serán anexadas en el mayor tamaño
+        posible en el Anexo
+      \end{minipage}
 
-       para poder incluir las 32 tuercas y los 40 tornillos a
-       la malla y al analisis, excede los limites de la licencia
-       educativa por la cual estamos haciendo uso del software. En la figura (5.7) se puede ver la
-       malla generada.
-
-       Figura 5.7: Malla generada automaticamente por ANSYS Mechanical.
+      \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{image/fem/ansys_cubesat-mesh.png}
+        \caption{Malla generada autmáticamente por ANSYS Mechanical}
+        \label{fig:fem_mesh}
+      \end{figure}
 
     \subsubsection{Analisis Modal}
 
@@ -830,64 +843,113 @@ durante el proceso de ingeniera del CubeSat.
 
     \subsubsection{Analisis de Vibraciones Aleatorias}
 
-    En este analisis, se sometio el CubeSat a la curva G2 /Hz recomendada por la competencia. Como
-    ANSYS Mechanical ya tiene incorporado el mecanismo para conectar puntos por
-    tramos rectos, la curva resultante tiene que pasar por los puntos especificados en el cuadro
-    (5.9), generando una curva como la de la figura (5.8).
+      En este analisis, se sometio el CubeSat a la curva G2 /Hz recomendada por la competencia. Como
+      ANSYS Mechanical ya tiene incorporado el mecanismo para conectar puntos por
+      tramos rectos, la curva resultante tiene que pasar por los puntos especificados en el cuadro
+      (5.9), generando una curva como la de la figura (5.8).
 
 
-    Figura 5.8: Curva (interpolada) de aceleracion G.
+      Figura 5.8: Curva (interpolada) de aceleracion G.
 
-    Esta curva se aplica a los tres ejes del CubeSat, lo que permite generar los siguientes
-    analisis de estres y tension.
+      Esta curva se aplica a los tres ejes del CubeSat, lo que permite generar los siguientes
+      analisis de estres y tension.
 
-    %image/fem/ansys_cubesat-vibration_stress.png
-    Figura 5.9: Analisis de Estres.
+      \begin{figure}[h]
+        \begin{minipage}{0.5\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]{image/fem/ansys_cubesat-vibration_stress.png}
+          \caption{analisis de estres}
+          \label{fig:fem_stress}
+        \end{minipage}
+        \begin{minipage}{0.5\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]{image/fem/ansys_cubesat-vibration_strain-x.png}
+          \caption{analisis de tensión en el eje x}
+          \label{fig:fem_strain-x}
+        \end{minipage}
+      \end{figure}
+      \begin{figure}[H]
+        \begin{minipage}{0.5\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]{image/fem/ansys_cubesat-vibration_strain-y.png}
+          \caption{Analisis de tensión en el eje Y}
+          \label{fig:fem_strain-y}
+        \end{minipage}
+        \begin{minipage}{0.5\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]{image/fem/ansys_cubesat-vibration_strain-z.png}
+          \caption{Analisis de tensión en el eje Y}
+          \label{fig:fem_strain-z}
+        \end{minipage}
+      \end{figure}
 
-    %image/fem/ansys_cubesat-vibration_strain-x.png
-    Figura 5.10: Analisis de Tension en el eje X.
-
-    %image/fem/ansys_cubesat-vibration_strain-z.png
-    Figura 5.11: Analisis de Tension en el eje Y. Figura 5.12: Analisis de Tension en el eje Z.
-
-    Como se puede ver en la figura (5.9), para el analisis de Estres equivalente, el pico maximo
-    es de 108  106 P a. Analizando con mas detalle, este punto se encuentra en la superficie de
-    contacto de la tapa inferior y la varilla. Debido al limite de resolucion, este punto de alta
-    presion puede ser una falla de simulacion, pero en caso de que no lo sea, sigue estando por
-    debajo del limite de rotura del aluminio y del acero, por lo que no presenta un problema.
+      Como se puede ver en la figura (5.9), para el analisis de Estres equivalente, el pico maximo
+      es de 108  106 P a. Analizando con mas detalle, este punto se encuentra en la superficie de
+      contacto de la tapa inferior y la varilla. Debido al limite de resolucion, este punto de alta
+      presion puede ser una falla de simulacion, pero en caso de que no lo sea, sigue estando por
+      debajo del limite de rotura del aluminio y del acero, por lo que no presenta un problema.
 
     \subsubsection{Analisis Estatico}
+      \begin{minipage}{\textwidth}
+        \begin{wrapfigure}{r}{0.4\textwidth}
+          \centering
+          \includegraphics[width=0.4\textwidth]{image/fem/ansys_cubesat-static_acceleration.png}
+          \caption{Vector de aceleración para la simulación estática.}
+          \label{fig:fem_static_acc}
+        \end{wrapfigure}
+        \hspace*{2em}
+        Se espera que el CubeSat este sometido a una aceleraciones de hasta 20g en el sentido +z y hasta 1g en
+        los sentidos x e y. Para las simulaciones, se utilizaron
+        estos valores con un factor de 1.25x. Un detalle que cabe destacar, es que todas las deformaciones presentes
+        en estas simulaciones, estan amplificadas visualmente para facilitar la deteccion patrones y fallas en el
+        diseno de la estructura, por lo tanto, es fundamental
+        interpretar los resultados en funcion de las escalas de
+        color y los valores numericos de los distintos analisis,
+        y no tomar como referencia la magnitud visual de las
+        Figura 5.13: Vector de aceleracion padeformaciones mostradas. Aclarado esto, se muestran
+        ra la simulacion estatica.
+        a continuacion las simulaciones realizadas.
+      \end{minipage}
 
-    Se espera que el CubeSat este sometido a una aceleraciones de hasta 20g en el sentido +z y hasta 1g en
-    los sentidos x e y. Para las simulaciones, se utilizaron
-    estos valores con un factor de 1.25x. Un detalle que cabe destacar, es que todas las deformaciones presentes
-    %image/fem/ansys_cubesat-static_accelerat
-    en estas simulaciones, estan amplificadas visualmente para facilitar la deteccion patrones y fallas en el
-    diseno de la estructura, por lo tanto, es fundamental
-    interpretar los resultados en funcion de las escalas de
-    color y los valores numericos de los distintos analisis,
-    y no tomar como referencia la magnitud visual de las
-    Figura 5.13: Vector de aceleracion padeformaciones mostradas. Aclarado esto, se muestran
-    ra la simulacion estatica.
-    a continuacion las simulaciones realizadas.
+      \begin{figure}[H]
+        \begin{minipage}{0.5\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]{image/fem/ansys_cubesat-static_strain.png}
+          \caption{analisis de fatiga}
+          \label{fig:fem_static_strain}
+        \end{minipage}
+        \begin{minipage}{0.5\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]{image/fem/ansys_cubesat-static_stress.png}
+          \caption{analisis de estrés}
+          \label{fig:fem_static_stress}
+        \end{minipage}
+      \end{figure}
+      \begin{figure}[H]
+        \begin{minipage}{0.5\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]{image/fem/ansys_cubesat-static_safety.png}
+          \caption{analisis de factor de seguridad}
+          \label{fig:fem_static_safety}
+        \end{minipage}
+        \begin{minipage}{0.5\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]{image/fem/ansys_cubesat-static_deformation.png}
+          \caption{analisis de deformación total}
+          \label{fig:fem_static_deformation}
+        \end{minipage}
+      \end{figure}
 
-    %image/fem/ansys_cubesat-static_stress.png
-    Figura 5.14: Analisis de Fatiga.
-    Figura 5.15: Analisis de Estres.
-    %image/fem/ansys_cubesat-static_safety.png
-    %image/fem/ansys_cubesat-static_deformation.png
-    Figura 5.16: Analisis de factor de seguridad. Figura 5.17: Analisis de deformacion total.
+      Como se observa en la figura 5.15, la tension
+      maxima alcanzada en la estructura es de 19  106 , Pa, valor significativamente inferior al
+      limite de rotura del material, lo que indica que no existe riesgo estructural bajo las
+      condiciones de carga previstas para el lanzamiento. Asimismo, la figura 5.16 muestra que el factor
+      de seguridad es uniforme en toda la estructura y alcanza un valor constante de 15, lo cual
+      proporciona un amplio margen respecto a posibles fallos. Finalmente, segun la figura 5.17,
+      la deformacion maxima experimentada por el CubeSat es de apenas 4, m, lo cual resulta
+      despreciable frente a las tolerancias mecanicas del sistema.
 
-    Como se observa en la figura 5.15, la tension
-    maxima alcanzada en la estructura es de 19  106 , Pa, valor significativamente inferior al
-    limite de rotura del material, lo que indica que no existe riesgo estructural bajo las
-    condiciones de carga previstas para el lanzamiento. Asimismo, la figura 5.16 muestra que el factor
-    de seguridad es uniforme en toda la estructura y alcanza un valor constante de 15, lo cual
-    proporciona un amplio margen respecto a posibles fallos. Finalmente, segun la figura 5.17,
-    la deformacion maxima experimentada por el CubeSat es de apenas 4, m, lo cual resulta
-    despreciable frente a las tolerancias mecanicas del sistema.
-
-    Concluimos entonces que nuestra propuesta de estructura es valida y soportara las condiciones de lanzamiento.
+      Concluimos entonces que nuestra propuesta de estructura es valida y soportara las condiciones de lanzamiento.
 
   \subsection{Análisis de Riesgos}
     En esta seccion se identifican posibles fallos asociados al funcionamiento de los subsistemas
