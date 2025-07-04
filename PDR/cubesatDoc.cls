@@ -30,6 +30,8 @@
 \RequirePackage{pgfgantt}
 \RequirePackage{biblatex}
 \RequirePackage[toc]{glossaries}
+\RequirePackage{caption}
+\RequirePackage{pgfplots}
 
 % configuracion de hipervinculos
 \hypersetup{
