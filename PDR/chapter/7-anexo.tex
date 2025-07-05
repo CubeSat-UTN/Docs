@@ -73,11 +73,7 @@
     bar/.append style={fill=blue!40},
     milestone/.append style={fill=orange},
     milestone label font=\bfseries\small,
-    bar label font=\small\slshape,
-    group left shift=0,
-    group right shift=0,
-    group peaks tip position=0,
-    group peaks height=.4
+    bar label font=\small\slshape
     ]{2025-07-04}{2025-08-22}
 
   % Tasks
@@ -115,6 +111,7 @@
   }
 
   \caption{Cronograma equipo de mecánica, parte 1.}
+     \label{gantt-mecanica1}
   \end{figure}
 
   \begin{figure}[H]
@@ -130,10 +127,6 @@
      milestone/.append style={fill=orange},
      milestone label font=\bfseries\small,
      bar label font=\small\slshape
-     group left shift=0,
-     group right shift=0,
-     group peaks tip position=0,
-     group peaks height=.4
      ]{2025-08-22}{2025-10-10}
 
    % Tasks
@@ -154,6 +147,7 @@
    }
 
   \caption{Cronograma equipo de mecánica, parte 2.}
+      \label{gantt-mecanica2}
   \end{figure}
 
 \section{Cronograma Electrónica (Hardware)}
@@ -224,6 +218,7 @@
   }
 
      \caption{Cronograma equipo de electrónica, desarrollo de hardware.}
+     \label{gantt-hardware}
   \end{figure}
 
 
@@ -276,6 +271,7 @@
   \end{ganttchart}
   }
      \caption{Cronograma equipo de electrónica, desarrollo de firmware.}
+    \label{gantt-firmware}
   \end{figure}
 
   \section{Cronograma Software}
@@ -349,6 +345,7 @@
     \end{ganttchart}
     }
     \caption{Cronograma equipo de software, parte 1.}
+    \label{gantt-software1}
     \end{figure}
 
   \newpage
@@ -426,6 +423,7 @@
       \end{ganttchart}
       }
     \caption{Cronograma equipo de software, parte 2.}
+    \label{gantt-software2}
     \end{figure}
     \vspace*{\fill}
 
