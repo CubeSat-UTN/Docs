@@ -165,6 +165,10 @@
     milestone/.append style={fill=orange},
     milestone label font=\bfseries\small,
     bar label font=\small\slshape
+    group left shift=0,
+    group right shift=0,
+    group peaks tip position=0,
+    group peaks height=.4
     ]{2025-07-04}{2025-08-31}
 
   % July
@@ -237,10 +241,14 @@
     milestone/.append style={fill=orange},
     milestone label font=\bfseries\small,
     bar label font=\small\slshape
+    group left shift=0,
+    group right shift=0,
+    group peaks tip position=0,
+    group peaks height=.4
     ]{2025-08-09}{2025-10-10}
 
   % July
-  \gantttitlecalendar{month=name,week,day} \\
+  \gantttitlecalendar{month=name,week=6,day} \\
 
   % Tasks
   \ganttgroup{Construcción 1ra versión}{2025-08-09}{2025-08-18} \\
@@ -288,7 +296,11 @@
         milestone/.append style={fill=orange},
         milestone label font=\bfseries\small,
         bar label font=\small\slshape
-    ]{2025-07-06}{2025-08-17}
+        group left shift=0,
+        group right shift=0,
+        group peaks tip position=0,
+        group peaks height=.4
+    ]{2025-07-04}{2025-08-17}
 
       \gantttitlecalendar{month=name, week, day} \\
 
@@ -306,9 +318,9 @@
       \ganttbar{Evaluación}{2025-08-09}{2025-08-13} \\
       \ganttbar{Selección}{2025-08-14}{2025-08-14} \\
 
-      \ganttgroup{Diseño de software}{2025-07-06}{2025-07-09} \\
-      \ganttbar{Especificación de funcionalidades}{2025-07-06}{2025-07-09} \\
-      \ganttbar{Diseño del sistema}{2025-07-06}{2025-07-09} \\
+      \ganttgroup{Diseño de software}{2025-07-04}{2025-07-09} \\
+      \ganttbar{Especificación de funcionalidades}{2025-07-04}{2025-07-09} \\
+      \ganttbar{Diseño del sistema}{2025-07-04}{2025-07-09} \\
 
       \ganttgroup{Configuración de entorno}{2025-07-10}{2025-07-19} \\
       \ganttbar{Configuración del sistema operativo}{2025-07-10}{2025-07-14} \\
@@ -363,9 +375,13 @@
         milestone/.append style={fill=orange},
         milestone label font=\bfseries\small,
         bar label font=\small\slshape
+        group left shift=0,
+        group right shift=0,
+        group peaks tip position=0,
+        group peaks height=.4
     ]{2025-08-18}{2025-10-10}
 
-      \gantttitlecalendar{month=name, week, day} \\
+      \gantttitlecalendar{month=name, week=8, day} \\
 
       %\ganttlink{req}{tools}
       %\ganttlink{tools}{design}

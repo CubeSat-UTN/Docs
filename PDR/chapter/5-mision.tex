@@ -176,7 +176,7 @@ a realizar, que será detallada en la siguiente sección.
     y analizar por medio de ensayos de inmunofluorescencia si se expresan las proteínas asociadas al proceso de
     enquistamiento. Para ello fijaremos las células, realizaremos los ensayos de inmunofluorescencia, y posteriormente
     las observaremos utilizando microscopía de fluorescencia. Se analizará si bajo estas circunstancias particulares se
-    evidencien vesículas específicas de enquistamiento, un signo adicional de estrés celular.
+    evidencian vesículas específicas de enquistamiento, un signo adicional de estrés celular.
 
   \subsection{Procedimientos}
     Esta sección describe los procedimientos necesarios para el cultivo y traslado de las muestras
@@ -184,7 +184,7 @@ a realizar, que será detallada en la siguiente sección.
     aseguren su viabilidad y reproducibilidad.
 
     \subsubsection{Cultivo}
-    Para cultivarlos axenicamente se utiliza medio TYI-S-33 (pH 7) suplementado con 10\% de
+    Para cultivarloLauwaet2007-tes axenicamente se utiliza medio TYI-S-33 (pH 7) suplementado con 10\% de
     suero bovino adulto y 5\% de bilis bovina (medio completo de crecimiento) (Diamond, Harlow
     un volumen determinado de medio. Los tubos se colocaron en gradillas orientadas con una
     inclinación de aproximadamente $45\degree$, dentro de una estufa de cultivo a $37 \Celsius$.
@@ -691,14 +691,16 @@ durante el proceso de ingeniera del CubeSat.
       \resizebox{\textwidth}{!}{
       \begin{tabular}{|l|c|c|c|c|c|c|}
       \hline
-      \textbf{Componente} & \textbf{Cant.} & \textbf{Tensión [V]} & \textbf{Corriente [A]} & \textbf{Potencia [W]} & \textbf{Subtotal [W]} & \textbf{* [A]} \\
+      \textbf{Componente} & \textbf{Cant.} & \textbf{Tensión [V]} & \textbf{Corriente [A]} & \textbf{Potencia [W]} & \textbf{Subtotal [W]} & \textbf{@ 7.4V[A]} \\
       \hline
-      Raspberry Pi Zero 2 W & 1 & 5.0 & 0.26   & 1.30   & 1.30   & 0.35   \\
-      Sensor BMP280         & 1 & 3.3 & 0.0007 & 0.0023 & 0.0023 & 0.0006 \\
-      Sensor MPU9250        & 1 & 3.3 & 0.0039 & 0.0129 & 0.0129 & 0.0035 \\
-      Celdas Peltier 4x4 cm & 3 & 12.0& 0.833  & 10.00  & 30.00  & 8.10   \\
+      Raspberry Pi Zero 2 W & 1 & 5.0  & 260 m & 260 m & 1.3 & 175.67 m   \\
+      Atmega328p            & 1 & 5.0  & 5.2 m & 26 m & 26 m  & 3.5 m   \\
+      Sensor BMP280         & 1 & 3.3  & 0.7 m & 2.3 m & 2.3 m & 0.310 m \\
+      Sensor MPU9250        & 1 & 3.3  & 3.9 m & 12.9 m & 12.9 m & 1.74 m\\
+      TB6612FNG             & 2 &  -   &   -   & 1 * canal & 3 & 405.54 m\\
+      Celdas Peltier 4x4 cm & 3 & 12.0 & 833 m & 10.00  & 30.00  & 4.05   \\
       \hline
-      \textbf{Total}        & – & –   & –      & –      & \textbf{31.3152} & \textbf{8.45 @ 3.7V} \\
+      \textbf{Total}        & – & –   & –      & –      & \textbf{34.34} & \textbf{4.63} \\
       \hline
       \end{tabular}
       }
@@ -706,6 +708,10 @@ durante el proceso de ingeniera del CubeSat.
       \label{tab:consumo_componentes}
       \end{table}
 
+      Para la mision elegimos tener 6 celdas 18650 de 3.7 V cada una con una capacidad de 3200 mAh. Se dispondran de
+      manera que habra 2 conexiones en serie y 3 conexiones en paralelo, teniendo en total 7.4 V y 9600 mAh. Esto nos
+      dará un tiempo de autonomia de 124 minutos. Esto es considerando casos mas desfavorables. Para el futuro, se
+      buscara hacer ensayos reales del consumo de cada componente y se buscara que cada uno de ellos sea el menor posible.
       Para determinar la potencia de los sensores se ha considerado sus respectivos datasheet \cite{datasheet-mpu9250} \cite{datasheet-bpm280}.
 
     \subsubsection{Presupuesto Preliminar de Datos}
@@ -1180,8 +1186,8 @@ durante el proceso de ingeniera del CubeSat.
           demanda energética del sistema durante el tiempo requerido.
 
         \item \textbf{Medición de voltaje y corriente durante carga y descarga:} Durante las fases de carga y descarga,
-          se monitorearán de forma continua los valores de tensión y corriente entregados por la batería. Esto permitirá
-          evaluar la estabilidad de las baterías frente a distintas condiciones de carga, así como detectar cadas de tensión
+          se monitorearan de forma continua los valores de tensión y corriente entregados por la batería. Esto permitirá
+          evaluar la estabilidad de las baterias frente a distintas condiciones de carga, asi como detectar cadas de tensión
           o comportamientos no deseados que puedan comprometer la operación de los subsistemas.
 
         \item \textbf{Medición de temperatura:} durante los ensayos anteriores se registrará también la evolución
