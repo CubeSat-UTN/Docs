@@ -922,7 +922,6 @@ durante el proceso de ingeniera del CubeSat.
         \caption{Geometría importada}
         \label{fig:fem_geo}
       \end{wrapfigure}
-      \hspace*{2em}
       El ensamblaje del CubeSat se exporta desde la plataforma de CAD online utilizada (Onshape) en formato STEP. De
       ahí, se importa la geometría a ANSYS Mechanical, el cual nos permite crear la selección y asignación de los
       materiales, fijar superficies de contacto y establecer superficies de fijación. Luego de importar la geometría,
@@ -1049,6 +1048,7 @@ durante el proceso de ingeniera del CubeSat.
       por lo que no presenta un problema.
 
     \subsubsection{Análisis Estático}
+    \begin{minipage}{\textwidth}
       \begin{wrapfigure}{R}{0.4\textwidth}
         \vspace{-0.5cm}
         \centering
@@ -1057,13 +1057,14 @@ durante el proceso de ingeniera del CubeSat.
         \label{fig:fem_static_acc}
       \end{wrapfigure}
 
-      Se espera que el CubeSat este sometido a una aceleraciones de hasta 20g en el sentido +z y hasta 1g en los
+      \hspace*{1em} Se espera que el CubeSat este sometido a una aceleraciones de hasta 20g en el sentido +z y hasta 1g en los
       sentidos x e y. Para las simulaciones, se utilizaron estos valores con un factor de 1.25x. Un detalle que cabe
       destacar, es que todas las deformaciones presentes en estas simulaciones, están amplificadas visualmente para
       facilitar la detección patrones y fallas en el diseño de la estructura, por lo tanto, es fundamental interpretar
       los resultados en función de las escalas de color y los valores numéricos de los distintos análisis, y no tomar
       como referencia la magnitud visual de las deformaciones mostradas. Aclarado esto, se muestran a continuación las
       simulaciones realizadas.
+    \end{minipage}
 
       \begin{figure}[H]
         \begin{minipage}{0.5\textwidth}
