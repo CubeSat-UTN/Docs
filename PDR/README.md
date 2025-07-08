@@ -15,14 +15,17 @@ En sistemas basados en Debian/Ubuntu, se pueden instalar con:
 ```bash
 sudo apt update
 sudo apt install texlive-full biber latexmk
+```
 ## 🛠️ Compilación
 
 Para compilar el documento PDF, ejecutá el siguiente comando:
 
 ```bash
 latexmk -pdf main.tex
+```
 
 Para comprimir el documento PDF, ejecutá el siguiente comando:
 
 ```bash
 gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/prepress -dNOPAUSE -dQUIET -dBATCH -sOutputFile=LAMBDA-PDR.pdf main.pdf
+```
