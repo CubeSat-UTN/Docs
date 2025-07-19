@@ -224,14 +224,14 @@
   \noindent
   \begin{minipage}{\textwidth}
   \underline{\textbf{\large #1}}\\
-  \begin{minipage}[c]{12cm}
+  \begin{minipage}[c]{0.65\textwidth}
     \vspace{2mm}
     \textbf{Áreas de Conocimiento:}\\
     #2\\
     \textbf{Experiencia:}\\
     #3
   \end{minipage}
-  \begin{minipage}[c]{4.2cm}
+  \begin{minipage}[c]{0.35\textwidth}
     \centering
     \begin{tikzpicture}
       \clip (2cm,-2cm) circle (2cm);
