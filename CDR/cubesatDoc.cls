@@ -44,6 +44,7 @@
 
 % Márgenes y geometría
 \geometry{
+  a4paper,
   left=2.5cm, right=2.5cm,
   top=0.5cm, bottom=2cm, headheight=3cm, headsep=0cm,
   nomarginpar, includehead
